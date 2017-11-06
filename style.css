@@ -114,6 +114,10 @@ section.main {
   width: 75%;
 }
 
+#branding .logo {
+  padding: 2px;
+}
+
 
 
 
@@ -176,9 +180,14 @@ div.tab button {
     font-family: 'Galada', cursive;
 }
 
+div.tab button{
+  height: 51.5px;
+}
+
 /* Change background color of buttons on hover */
 div.tab button:hover {
     border-bottom: #FFD66C 3px solid;
+    height: 51.5px;
 }
 
 /* Create an active/current tablink class */
@@ -248,15 +257,20 @@ div.createtab button {
     float: left;
     transition: 0.3s;
     width: 20%;
-    color: #FFD66C;
+    color: #6A2D00;
   	text-decoration: none;
   	font-size: 30px;
     font-family: 'Galada', cursive;
 }
 
+div.createtab button{
+  height: 51.5px;
+}
+
 /* Change background color of buttons on hover */
 div.createtab button:hover {
     border-bottom: #FFD66C 3px solid;
+    height: 51.5px;
 }
 
 /* Create an active/current tablink class */
@@ -382,6 +396,13 @@ button#log {
 
 button:hover {
     opacity: 0.8;
+}
+
+.title {
+  float: left;
+  width: 50%;
+  text-align: center;
+  
 }
 
 /* Center the image and position the close button */

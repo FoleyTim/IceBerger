@@ -11,7 +11,9 @@ function openMenu(evt, item) {
     document.getElementById(item).style.display = "block";
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
+document.getElementsById("default").trigger('click');
+
+
 function openCreate(evt, item) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("createBurgercontent");
