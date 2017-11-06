@@ -1,0 +1,137 @@
+* { border: 1px solid black; }
+
+body {
+  font: 15px/1.5 Ariel, Helvetica, sans-serif;
+  background: #9A4198;/* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#9A4198, #D67DB3); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#9A4198, #D67DB3); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#9A4198, #D67DB3); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#9A4198, #D67DB3); /* Standard syntax */
+  background-repeat: no-repeat;
+  height: 100%;
+  margin: 0;
+  background-attachment: fixed;
+}
+
+.container {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+header ul {
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+/*Header*/
+header#unlogged {
+	background: #65BBC6;/* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #65BBC6, #147871); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #65BBC6, #147871); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #65BBC6, #147871); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #65BBC6, #147871); /* Standard syntax */
+	color: #ffffff;
+	padding-top: 10px;
+  padding-bottom: 5px;
+	min-height: 70px;
+	border-bottom: #FFD66C 7px solid;
+}
+
+header#unlogged a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+header#unlogged li {
+	float: left;
+	display: inline;
+	padding: 0 20px 0 20px;
+  /*margin-top: 10px;*/
+
+  border-right: 2px solid #65BBC6;
+  line-height:50px;
+}
+
+header#unlogged li:last-child {
+  border-right: none;
+}
+
+header#unlogged #branding {
+	float: left;
+}
+
+header#unlogged #branding h1 {
+	margin: 0;
+}
+
+header#unlogged nav {
+	float: right;
+	margin-top: 10px;
+}
+
+header#unlogged .highlight, header .current a {
+	color: 	#e8491d;
+	font-weight: bold;
+}
+
+header#unlogged a:hover {
+	border-bottom: #FFD66C 2px solid;
+}
+
+
+section {
+  float: left;
+}
+
+div
+
+
+/*Menu**/
+header#menu {
+	background: #6A2D00;
+}
+
+header#menu a {
+	color: #FFD66C;
+	text-decoration: none;
+	font-size: 16px;
+  font-family: 'Galada', cursive;
+}
+
+header#menu li {
+	float: left;
+	display: inline;
+	padding: 0 20px 0 20px;
+}
+
+header#menu #branding {
+	float: left;
+}
+
+header#menu #branding h1 {
+	margin: 0;
+}
+
+header#menu nav {
+  align-items: center;
+}
+
+header#menu .highlight, header .current a {
+	color: 	#e8491d;
+	font-weight: bold;
+}
+
+header#menu a:hover {
+  border-bottom: #FFD66C 3px solid;
+}
+
+
+
+/*Main Area**/
+section.main-content {
+
+  max-height: inherit;
+}
