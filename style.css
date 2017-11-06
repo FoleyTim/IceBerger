@@ -1,16 +1,28 @@
 /** { border: 1px solid black; }*/
 
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Global
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+body, html {
+  height: 100%;
+}
+
 body {
-  font: 15px/1.5 Ariel, Helvetica, sans-serif;
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
   background: #9A4198;/* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#9A4198, #D67DB3); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#9A4198, #D67DB3); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#9A4198, #D67DB3); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#9A4198, #D67DB3); /* Standard syntax */
-  background-repeat: no-repeat;
-  height: 100%;
   margin: 0;
+  min-height: 100%;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
 }
 
 .container {
@@ -19,13 +31,33 @@ body {
 	overflow: hidden;
 }
 
-header ul {
+ul {
 	margin: 0 auto;
 	padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+}
+
+button:focus {
+  outline: none;
 }
 
 
-/*Header*/
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Header
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
 header#unlogged {
 	background: #65BBC6;/* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, #65BBC6, #147871); /* For Safari 5.1 to 6.0 */
@@ -33,13 +65,11 @@ header#unlogged {
   background: -moz-linear-gradient(right, #65BBC6, #147871); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, #65BBC6, #147871); /* Standard syntax */
 	color: #ffffff;
-	padding-top: 10px;
-  padding-bottom: 5px;
 	min-height: 70px;
 	border-bottom: #FFD66C 7px solid;
 }
 
-header#unlogged a {
+header#unlogged button {
 	color: #ffffff;
 	text-decoration: none;
 	font-size: 16px;
@@ -49,8 +79,6 @@ header#unlogged li {
 	float: left;
 	display: inline;
 	padding: 0 20px 0 20px;
-  /*margin-top: 10px;*/
-
   border-right: 2px solid #65BBC6;
   line-height:50px;
 }
@@ -81,67 +109,373 @@ header#unlogged a:hover {
 	border-bottom: #FFD66C 2px solid;
 }
 
+section.main {
+  float: left;
+  width: 75%;
+}
 
-/*Sidebar*/
-aside#sidebar{
+
+
+
+
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  My Order
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+#sidebar{
 	float: right;
-  margin-top: -66px;
-	width: 30%;
+	width: 25%;
+  position: relative;
 }
 
 .docket {
 	padding: 15px;
 	background: #F9F9E0;
 	color: #6A2D00;
+  text-align: center;
+  height: 81.2vh;
+}
+
+.docket h3 {
+  border-bottom: #6A2D00 5px solid;
 }
 
 
 
 
 
-/*Menu**/
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Menu
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
 header#menu {
 	background: #6A2D00;
 }
 
-header#menu a {
-	color: #FFD66C;
-	text-decoration: none;
-	font-size: 30px;
-  font-family: 'Galada', cursive;
+/* Style the tab */
+div.tab {
+  margin-top: 7px;
+    overflow: hidden;
 }
 
-header#menu li {
-	float: left;
-	display: inline;
-	padding: 16px 20px 5px 20px;
+/* Style the buttons inside the tab */
+div.tab button {
+    float: left;
+    transition: 0.3s;
+    width: 33%;
+    color: #FFD66C;
+  	text-decoration: none;
+  	font-size: 30px;
+    font-family: 'Galada', cursive;
 }
 
-header#menu #branding {
-	float: left;
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    border-bottom: #FFD66C 3px solid;
 }
 
-header#menu #branding h1 {
-	margin: 0;
+/* Create an active/current tablink class */
+div.tab button.active {
+    border-bottom: #FFD66C 3px solid;
 }
 
-header#menu nav {
-  align-items: center;
-}
-
-header#menu .highlight, header .current a {
-	color: 	#e8491d;
-	font-weight: bold;
-}
-
-header#menu a:hover {
-  border-bottom: #FFD66C 3px solid;
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 
 
-/*Main Area**/
-section.main-content {
 
-  max-height: inherit;
+
+
+
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Create Burger
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+
+/*Button*/
+.create-container {
+  width: 50%;
+  margin: auto;
+	overflow: hidden;
+}
+
+.create {
+  background: #4F2200;
+	overflow: hidden;
+  text-align: center;
+  padding: 15px;
+}
+
+.create button {
+  color: #F9F9E0;
+  font-size: 20px;
+}
+
+.whitechoc {
+  position: relative;
+  top: -2px;
+  left: -2px;
+}
+
+/*Modal*/
+
+
+/* Style the tab */
+div.createtab {
+  margin-top: 7px;
+    overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+div.createtab button {
+    float: left;
+    transition: 0.3s;
+    width: 20%;
+    color: #FFD66C;
+  	text-decoration: none;
+  	font-size: 30px;
+    font-family: 'Galada', cursive;
+}
+
+/* Change background color of buttons on hover */
+div.createtab button:hover {
+    border-bottom: #FFD66C 3px solid;
+}
+
+/* Create an active/current tablink class */
+div.createtab button.active {
+    border-bottom: #FFD66C 3px solid;
+}
+
+/* Style the tab content */
+.createBurgercontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+    background: #65BBC6;
+    text-align: center;
+    margin: 0 0 12px 0;
+    position: relative;
+    border-bottom: #FFD66C 7px solid;
+}
+
+img.avatar {
+    width: 25%;
+}
+
+.logcontainer {
+    padding: 16px;
+    width: 46%;
+    display: inline-block;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #F9F9E0;
+    color: #6A2D00;
+    margin: -30px auto 0 auto; /* 5% from the top, 15% from the bottom and centered */
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #F9F9E0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #D67DB3;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+
+
+
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Loggin
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button#log {
+    background-color: #D67DB3;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    background: #65BBC6;
+    text-align: center;
+    margin: 0 0 12px 0;
+    position: relative;
+    border-bottom: #FFD66C 7px solid;
+}
+
+img.avatar {
+    width: 25%;
+}
+
+.logcontainer {
+    padding: 16px;
+    width: 46%;
+    display: inline-block;
+}
+
+.signcontainer {
+    padding: 16px;
+
+    width: 46%;
+    display: inline-block;
+    border-left: 2px solid #65BBC6;
+    margin-bottom: 20px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #F9F9E0;
+    color: #6A2D00;
+    margin: -30px auto 0 auto; /* 5% from the top, 15% from the bottom and centered */
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #F9F9E0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #D67DB3;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
 }

@@ -6,12 +6,88 @@
     <title>IceBerger | Welcome</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="script.js"></script>
+    <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
 
   </head>
 
   <body>
+
+    <div id="id01" class="modal">
+
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="logcontainer">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button id="log" type="submit">Login</button>
+
+        </div>
+
+        <div class="signcontainer">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label><b>Email</b></label>
+          <input type="email" placeholder="Enter Email" name="email" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button id="log" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="id02" class="modal">
+
+      <div class="modal-content animate">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="createtab">
+            <button class="tablinks" onclick="openCreate(event, 'Buns')" id="defaultOpen">Buns</button>
+            <button class="tablinks" onclick="openCreate(event, 'Fillings')">Fillings</button>
+            <button class="tablinks" onclick="openCreate(event, 'Cheese')">Cheese</button>
+            <button class="tablinks" onclick="openCreate(event, 'Salads')">Salads</button>
+            <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button>
+        </div>
+
+        <div id="Buns" class="createBurgercontent">
+            <h3>Populate Buns</h3>
+        </div>
+        <div id="Fillings" class="createBurgercontent">
+            <h3>Populate Fillings</h3>
+        </div>
+        <div id="Cheese" class="createBurgercontent">
+            <h3>Populate Cheese</h3>
+        </div>
+        <div id="Salads" class="createBurgercontent">
+            <h3>Populate Salads</h3>
+        </div>
+        <div id="Sauce" class="createBurgercontent">
+            <h3>Populate Sauce</h3>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
     <header id="unlogged">
 		<div class="container">
 			<div id="branding">
@@ -19,38 +95,70 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="">New Order</a></li>
-					<li><a href="">Login</a></li>
+					<li><button>New Order</button></li>
+					<li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-  <section>
+  <section class="main">
     <header id="menu">
       <div class="container">
-        <nav>
-          <ul>
-            <li><a href="">Burgers</a></li>
-            <li><a href="">Sides</a></li>
-            <li><a href="">Drinks</a></li>
-          </ul>
-        </nav>
+
+        <div class="tab">
+  					<button class="tablinks" onclick="openMenu(event, 'Burgers')" id="defaultOpen">Burgers</button>
+  					<button class="tablinks" onclick="openMenu(event, 'Sides')">Sides</button>
+  					<button class="tablinks" onclick="openMenu(event, 'Drinks')">Drinks</button>
+				</div>
+
+
+
+
+
       </div>
     </header>
+
+    <div class="create">
+      <div class="create-container">
+        <button onclick="document.getElementById('id02').style.display='block'" type="button" name="button">Create Your New Burger <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+
+      </div>
+    </div>
+    <div class="">
+      <img class="whitechoc" src="images/whitechoc.png" alt="" width="101%">
+    </div>
+
+    <section >
+      <div id="Burgers" class="tabcontent">
+          <h3>Populate Burgers</h3>
+      </div>
+
+      <div id="Sides" class="tabcontent">
+        <h3>Populate Sides</h3>
+      </div>
+
+      <div id="Drinks" class="tabcontent">
+          <h3>Populate Drinks</h3>
+      </div>
+
+
+
+
+    </section>
+
   </section>
 
-  <aside id="sidebar">
+  <div id="sidebar">
 				<div class="docket">
 					<h3>My Order</h3>
-					<p>I provide an unrivaled urgency to provide people with the celebratory Hi-Fives they need for any and all occasions!</p>
+			       <ul>
+			         <li>Burger</li>
+               <li>Chips</li>
+               <li>Drink</li>
+			       </ul>
 				</div>
-			</aside>
-
-
-
-
-
+	</div>
 
   </body>
 </html>
