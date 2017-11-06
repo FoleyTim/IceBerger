@@ -1,4 +1,4 @@
-* { border: 1px solid black; }
+/** { border: 1px solid black; }*/
 
 body {
   font: 15px/1.5 Ariel, Helvetica, sans-serif;
@@ -82,11 +82,21 @@ header#unlogged a:hover {
 }
 
 
-section {
-  float: left;
+/*Sidebar*/
+aside#sidebar{
+	float: right;
+  margin-top: -66px;
+	width: 30%;
 }
 
-div
+.docket {
+	padding: 15px;
+	background: #F9F9E0;
+	color: #6A2D00;
+}
+
+
+
 
 
 /*Menu**/
@@ -97,14 +107,14 @@ header#menu {
 header#menu a {
 	color: #FFD66C;
 	text-decoration: none;
-	font-size: 16px;
+	font-size: 30px;
   font-family: 'Galada', cursive;
 }
 
 header#menu li {
 	float: left;
 	display: inline;
-	padding: 0 20px 0 20px;
+	padding: 16px 20px 5px 20px;
 }
 
 header#menu #branding {
