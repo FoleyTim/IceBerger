@@ -1,102 +1,209 @@
 <!DOCTYPE html>
 <html>
-  <head>
 
-    <meta charset="UTF-8">
-    <title>IceBerger | Welcome</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
+<head>
 
-    <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>IceBerger | Past Orders</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
 
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
 
-  <body>
+</head>
 
-    <header id="unlogged">
-		<div class="container">
-			<div id="branding">
-        <img class="logo" src="images/IcebergerLogo.png" alt="" height="73" width"73">
-			</div>
-			<nav>
-				<ul>
-					<li>
+<body>
+
+  <header id="unlogged">
+    <div class="container">
+      <div id="branding">
+        <img class="logo" src="images/IcebergerLogo.png" alt="" height="65" width "65">
+      </div>
+      <nav>
+        <ul class="toolbar">
+          <li>
             <form action="index.html" method="get">
-            <button>New Order</button>
+              <button>New Order</button>
             </form>
           </li>
           <li><button id="currentPage">Past Orders</button></li>
           <li><button>My Burgers</button></li>
-					<li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+          <li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <div id="id01" class="modal">
+  <div id="id01" class="modal">
 
-      <div class="modal-content animate">
+    <div class="modal-content animate">
 
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
-        </div>
-        <div class="title">
-          <h1>Login</h1>
-        </div>
-        <div class="title">
-          <h1>Sign Up</h1>
-        </div>
-
-
-        <form class="logcontainer" id="loginform" method="POST">
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" id="logUname" required>
-
-          <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
-          <button id="log" type="submit">Login</button>
-
-        </form>
-
-        <form class="signcontainer">
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-
-          <label><b>Email</b></label>
-          <input type="email" placeholder="Enter Email" name="email" required>
-
-          <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
-          <button id="log" type="submit">Sign Up</button>
-        </form>
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
       </div>
+      <div class="title">
+        <h1>Login</h1>
+      </div>
+      <div class="title">
+        <h1>Sign Up</h1>
+      </div>
+
+
+      <form class="logcontainer" id="loginform" method="POST">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="logUname" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
+        <button id="log" type="submit">Login</button>
+
+      </form>
+
+      <form class="signcontainer">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button id="log" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+<div class="pastcontent">
+
+
+  <div class="">
+    <img class="whitechoc" src="images/whitechoc2.png" alt="" width="133.554%">
+  </div>
+
+  <div id="Burgers" class="tabcontent">
+
+    <button class="itemcontainer" onclick="document.getElementById('id03').style.display='block';openCreate(event, 'Buns');">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </button>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
     </div>
 
-
-
-
-  <section class="main">
-    <header id="menu">
-      <div class="container">
-
-
-
-
-
-
-
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
       </div>
-    </header>
-
-
-    <div class="">
-      <img class="whitechoc" src="images/whitechoc2.png" alt="" width="133.554%">
+      <h3>Title</h3>
+      <h3>Price</h3>
     </div>
 
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
 
-  </body>
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+  </div>
+  </div>
+
+
+  <div id="id03" class="modal">
+
+    <div class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="createtab">
+        <button class="tablinks" onclick="openCreate(event, 'Buns')" id="defaultOpen">Buns</button>
+        <button class="tablinks" onclick="openCreate(event, 'Fillings')">Fillings</button>
+        <button class="tablinks" onclick="openCreate(event, 'Cheese')">Cheese</button>
+        <button class="tablinks" onclick="openCreate(event, 'Salads')">Salads</button>
+        <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button>
+      </div>
+
+      <div id="Buns" class="createBurgercontent">
+        <h3>Populate Buns</h3>
+      </div>
+      <div id="Fillings" class="createBurgercontent">
+        <h3>Populate Fillings</h3>
+      </div>
+      <div id="Cheese" class="createBurgercontent">
+        <h3>Populate Cheese</h3>
+      </div>
+      <div id="Salads" class="createBurgercontent">
+        <h3>Populate Salads</h3>
+      </div>
+      <div id="Sauce" class="createBurgercontent">
+        <h3>Populate Sauce</h3>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
 </html>

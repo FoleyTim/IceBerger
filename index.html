@@ -15,14 +15,13 @@
 </head>
 
 <body>
-
   <header id="unlogged">
     <div class="container">
       <div id="branding">
         <img class="logo" src="images/IcebergerLogo.png" alt="" height="65" width "65">
       </div>
       <nav>
-        <ul>
+        <ul class="toolbar">
           <li>
             <button id="currentPage">New Order</button>
           </li>
@@ -53,7 +52,6 @@
         Sign Up
       </div>
 
-
       <form class="logcontainer" id="loginform" method="POST">
         <label><b>Email</b></label>
         <input type="email" placeholder="Enter Email" name="uname" id="logUname" required>
@@ -61,7 +59,6 @@
         <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
         <button id="log" type="submit">Login</button>
-
       </form>
 
       <form class="signcontainer" id="signupform" method="POST">
@@ -110,59 +107,127 @@
       <div id="Sauce" class="createBurgercontent">
         <h3>Populate Sauce</h3>
       </div>
-
-
     </div>
-  </div>
   </div>
 
 
   <section class="main">
     <header id="menu">
       <div class="container">
-
         <div class="tab">
           <button id="default" class="tablinks" onclick="openMenu(event, 'Burgers')">Burgers</button>
           <button class="tablinks" onclick="openMenu(event, 'Sides')">Sides</button>
           <button class="tablinks" onclick="openMenu(event, 'Drinks')">Drinks</button>
         </div>
-
-
-
-
-
       </div>
     </header>
+    <div class="content">
 
-    <div class="create">
-      <div class="create-container">
-        <button onclick="document.getElementById('id02').style.display='block';openCreate(event, 'Buns');" type="button" name="button">Create Your New Burger <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
 
+      <div class="create">
+        <div class="create-container">
+          <button onclick="document.getElementById('id02').style.display='block';openCreate(event, 'Buns');" type="button" name="button">Create Your New Burger <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+
+        </div>
       </div>
+      <div class="">
+        <img class="whitechoc" src="images/whitechoc.png" alt="" width="101%">
+      </div>
+
+      <section>
+
+        <div id="Burgers" class="tabcontent">
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+        </div>
+
+        <div id="Sides" class="tabcontent">
+          <h3>Populate Sides</h3>
+        </div>
+
+        <div id="Drinks" class="tabcontent">
+          <h3>Populate Drinks</h3>
+        </div>
+      </section>
     </div>
-    <div class="">
-      <img class="whitechoc" src="images/whitechoc.png" alt="" width="101%">
-    </div>
-
-    <section>
-
-      <div id="Burgers" class="tabcontent">
-        <h3>Populate Burgers</h3>
-      </div>
-
-      <div id="Sides" class="tabcontent">
-        <h3>Populate Sides</h3>
-      </div>
-
-      <div id="Drinks" class="tabcontent">
-        <h3>Populate Drinks</h3>
-      </div>
-
-
-
-
-    </section>
-
   </section>
 
   <div id="sidebar">
