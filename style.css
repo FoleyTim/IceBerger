@@ -7,17 +7,23 @@
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
+
 body, html {
   height: 100%;
 }
 
 body {
   font: 15px/1.5 Arial, Helvetica, sans-serif;
-  background: #9A4198;/* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#9A4198, #D67DB3); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#9A4198, #D67DB3); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#9A4198, #D67DB3); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#9A4198, #D67DB3); /* Standard syntax */
+  /* For browsers that do not support gradients */
+  background: #9A4198;
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(#9A4198, #D67DB3);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(#9A4198, #D67DB3);
+  /* For Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(#9A4198, #D67DB3);
+  /* Standard syntax */
+  background: linear-gradient(#9A4198, #D67DB3);
   margin: 0;
   min-height: 100%;
   background-repeat: no-repeat;
@@ -26,14 +32,14 @@ body {
 }
 
 .container {
-	width: 80%;
-	margin: auto;
-	overflow: hidden;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 ul {
-	margin: 0 auto;
-	padding: 0;
+  margin: 0 auto;
+  padding: 0;
   list-style: none;
 }
 
@@ -50,7 +56,6 @@ button:focus {
   outline: none;
 }
 
-
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
@@ -58,29 +63,34 @@ button:focus {
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
+
 header#unlogged {
-	background: #65BBC6;/* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, #65BBC6, #147871); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #65BBC6, #147871); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #65BBC6, #147871); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, #65BBC6, #147871); /* Standard syntax */
-	color: #ffffff;
-	min-height: 70px;
-	border-bottom: #FFD66C 7px solid;
+/* For browsers that do not support gradients */
+  background: #65BBC6;
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left, #65BBC6, #147871);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(right, #65BBC6, #147871);
+  /* For Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(right, #65BBC6, #147871);
+  /* Standard syntax */
+  background: linear-gradient(to right, #65BBC6, #147871);
+  color: #ffffff;
+  height: 70px;
+  border-bottom: #FFD66C 7px solid;
 }
 
 header#unlogged button {
-	color: #ffffff;
-	text-decoration: none;
-	font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 header#unlogged li {
-	float: left;
-	display: inline;
-	padding: 0 20px 0 20px;
-
-  line-height:50px;
+  float: left;
+  display: inline;
+  padding: 0 20px 0 20px;
+  line-height: 50px;
 }
 
 header#unlogged li:last-child {
@@ -88,25 +98,25 @@ header#unlogged li:last-child {
 }
 
 header#unlogged #branding {
-	float: left;
+  float: left;
 }
 
 header#unlogged #branding h1 {
-	margin: 0;
+  margin: 0;
 }
 
 header#unlogged nav {
-	float: right;
-	margin-top: 10px;
+  float: right;
+  margin-top: 10px;
 }
 
 header#unlogged .highlight, header .current a {
-	color: 	#e8491d;
-	font-weight: bold;
+  color: #e8491d;
+  font-weight: bold;
 }
 
 header#unlogged a:hover {
-	border-bottom: #FFD66C 2px solid;
+  border-bottom: #FFD66C 2px solid;
 }
 
 section.main {
@@ -115,10 +125,10 @@ section.main {
 }
 
 #branding .logo {
-  padding: 2px;
+  padding-top: 2px;
 }
 
-#newOrder{
+#newOrder {
   padding-right: 40px;
   border-right: 2px solid #65BBC6;
 }
@@ -127,11 +137,6 @@ section.main {
   border-bottom: #FFD66C 2px solid;
 }
 
-
-
-
-
-
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
@@ -139,27 +144,24 @@ section.main {
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
-#sidebar{
-	float: right;
-	width: 25%;
+
+#sidebar {
+  float: right;
+  width: 25%;
   position: relative;
 }
 
 .docket {
-	padding: 15px;
-	background: #F9F9E0;
-	color: #6A2D00;
+  padding: 15px;
+  background: #F9F9E0;
+  color: #6A2D00;
   text-align: center;
-  height: 81.2vh;
+  height: calc(100vh - 107px);
 }
 
 .docket h3 {
   border-bottom: #6A2D00 5px solid;
 }
-
-
-
-
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -168,56 +170,55 @@ section.main {
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
+
 header#menu {
-	background: #6A2D00;
+  background: #6A2D00;
 }
 
 /* Style the tab */
+
 div.tab {
   margin-top: 7px;
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Style the buttons inside the tab */
+
 div.tab button {
-    float: left;
-    transition: 0.3s;
-    width: 33%;
-    color: #FFD66C;
-  	text-decoration: none;
-  	font-size: 30px;
-    font-family: 'Galada', cursive;
+  float: left;
+  transition: 0.3s;
+  width: 33%;
+  color: #FFD66C;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
 }
 
-div.tab button{
+div.tab button {
   height: 51.5px;
 }
 
 /* Change background color of buttons on hover */
+
 div.tab button:hover {
-    border-bottom: #FFD66C 3px solid;
-    height: 51.5px;
+  border-bottom: #FFD66C 3px solid;
+  height: 51.5px;
 }
 
 /* Create an active/current tablink class */
+
 div.tab button.active {
-    border-bottom: #FFD66C 3px solid;
+  border-bottom: #FFD66C 3px solid;
 }
 
 /* Style the tab content */
+
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
-    background: rgba(0, 0, 0, 0.3);
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  background: rgba(0, 0, 0, 0.3);
 }
-
-
-
-
-
-
-
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -228,15 +229,16 @@ div.tab button.active {
 ----------------------------------------------------**/
 
 /*Button*/
+
 .create-container {
   width: 50%;
   margin: auto;
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .create {
   background: #4F2200;
-	overflow: hidden;
+  overflow: hidden;
   text-align: center;
   padding: 15px;
 }
@@ -254,126 +256,146 @@ div.tab button.active {
 
 /*Modal*/
 
-
 /* Style the tab */
+
 div.createtab {
   margin-top: 7px;
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Style the buttons inside the tab */
+
 div.createtab button {
-    float: left;
-    transition: 0.3s;
-    width: 20%;
-    color: #6A2D00;
-  	text-decoration: none;
-  	font-size: 30px;
-    font-family: 'Galada', cursive;
+  float: left;
+  transition: 0.3s;
+  width: 20%;
+  color: #6A2D00;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
 }
 
-div.createtab button{
+div.createtab button {
   height: 51.5px;
 }
 
 /* Change background color of buttons on hover */
+
 div.createtab button:hover {
-    border-bottom: #FFD66C 3px solid;
-    height: 51.5px;
+  border-bottom: #FFD66C 3px solid;
+  height: 51.5px;
 }
 
 /* Create an active/current tablink class */
+
 div.createtab button.active {
-    border-bottom: #FFD66C 3px solid;
+  border-bottom: #FFD66C 3px solid;
 }
 
 /* Style the tab content */
+
 .createBurgercontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
-    background: rgba(0, 0, 0, 0.3);
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-
-
 /* Center the image and position the close button */
+
 .imgcontainer {
-    background: #65BBC6;
-    text-align: center;
-    margin: 0 0 12px 0;
-    position: relative;
-    border-bottom: #FFD66C 7px solid;
+  background: #65BBC6;
+  text-align: center;
+  margin: 0 0 12px 0;
+  position: relative;
+  border-bottom: #FFD66C 7px solid;
 }
 
 img.avatar {
-    width: 25%;
+  width: 25%;
 }
 
 .logcontainer {
-    padding: 16px;
-    width: 46%;
-    display: inline-block;
+  padding: 16px;
+  width: 46%;
+  display: inline-block;
 }
 
 /* The Modal (background) */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
 }
 
 /* Modal Content/Box */
+
 .modal-content {
-    background-color: #F9F9E0;
-    color: #6A2D00;
-    margin: -30px auto 0 auto; /* 5% from the top, 15% from the bottom and centered */
-    width: 80%; /* Could be more or less, depending on screen size */
+  background-color: #F9F9E0;
+  color: #6A2D00;
+  margin: -30px auto 0 auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
+
 .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #F9F9E0;
-    font-size: 35px;
-    font-weight: bold;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #F9F9E0;
+  font-size: 35px;
+  font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #D67DB3;
-    cursor: pointer;
+.close:hover, .close:focus {
+  color: #D67DB3;
+  cursor: pointer;
 }
 
 /* Add Zoom Animation */
+
 .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
+  from {
+    -webkit-transform: scale(0)
+  }
+  to {
+    -webkit-transform: scale(1)
+  }
 }
 
 @keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
 }
-
-
-
-
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -384,128 +406,166 @@ img.avatar {
 ----------------------------------------------------**/
 
 input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
+
 button#log {
-    background-color: #D67DB3;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  background-color: #D67DB3;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .title {
+  margin-top: -15px;
+  margin-bottom: 10px;
   float: left;
   width: 50%;
   text-align: center;
-
+  background: #6A2D00;
+  color: #FFD66C;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
 }
 
 /* Center the image and position the close button */
+
 .imgcontainer {
-    background: #65BBC6;
-    text-align: center;
-    margin: 0 0 12px 0;
-    position: relative;
-    border-bottom: #FFD66C 7px solid;
+/* For browsers that do not support gradients */
+  background: #65BBC6;
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(right, #147871, #65BBC6);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(left, #147871, #65BBC6);
+  /* For Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(left, #147871, #65BBC6);
+  /* Standard syntax */
+  background: linear-gradient(to left, #147871, #65BBC6);
+  text-align: center;
+  margin: 0 0 12px 0;
+  position: relative;
+  border-bottom: #FFD66C 7px solid;
 }
 
 img.avatar {
-    width: 25%;
+  padding-top: 10px;
+  width: 18%;
 }
 
 .logcontainer {
-    padding: 16px;
-    width: 46%;
-    display: inline-block;
+  padding: 16px;
+  width: 46%;
+  display: inline-block;
 }
 
 .signcontainer {
-    padding: 16px;
-
-    width: 46%;
-    display: inline-block;
-    border-left: 2px solid #65BBC6;
-    margin-bottom: 20px;
+  padding: 16px;
+  width: 46%;
+  display: inline-block;
+  border-left: 2px solid #65BBC6;
+  margin-bottom: 20px;
 }
 
 span.psw {
-    float: right;
-    padding-top: 16px;
+  float: right;
+  padding-top: 16px;
 }
 
 /* The Modal (background) */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
 }
 
 /* Modal Content/Box */
+
 .modal-content {
-    background-color: #F9F9E0;
-    color: #6A2D00;
-    margin: -30px auto 0 auto; /* 5% from the top, 15% from the bottom and centered */
-    width: 80%; /* Could be more or less, depending on screen size */
+  background-color: #F9F9E0;
+  color: #6A2D00;
+  margin: -30px auto 0 auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
+
 .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #F9F9E0;
-    font-size: 35px;
-    font-weight: bold;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #F9F9E0;
+  font-size: 35px;
+  font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #D67DB3;
-    cursor: pointer;
+.close:hover, .close:focus {
+  color: #D67DB3;
+  cursor: pointer;
 }
 
 /* Add Zoom Animation */
+
 .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
 }
 
 @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
+  from {
+    -webkit-transform: scale(0)
+  }
+  to {
+    -webkit-transform: scale(1)
+  }
 }
 
 @keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
 }
 
 /* Change styles for span and cancel button on extra small screens */
+
 @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
+  span.psw {
+    display: block;
+    float: none;
+  }
 }
