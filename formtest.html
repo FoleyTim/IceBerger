@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
   <script type="text/javascript">
-    function loggin(form) {
-      console.log("form submit");
+$(document).ready(function() {
+  $("#loginform").submit(function (event) {
+    event.preventDefault();
 
-      var http = new XMLHttpRequest();
-      var url = "http://10.140.124.121/iceberger_backend/login.php";
-      var name = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-      var params = "email=" + name + "&password=" + password;
-      http.open("POST", url, true);
+    var name = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    $.getJSON("//10.140.124.121/iceberger_backend/login.php?callback=?", "email=" + name + "&password=" + password, function(data) {
+      console.log(data);
+    });
 
-      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    return false;
+  });
+});
 
-      http.onreadystatechange = function() {
-        if(http.readyState == 4 && http.status == 200){
-          console.log(http.responseText);
-        }
+      function session(form) {
+console.log("session request");
+      $.getJSON("//10.140.124.121/iceberger_backend/session.php?callback=?", function(data) {
+        console.log(data);
+      });
+        // var http = new XMLHttpRequest();
+        // var url = "http://10.140.124.121/iceberger_backend/session.php";
+        // http.open("POST", url, true);
+        //
+        // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //
+        // http.onreadystatechange = function() {
+        //   if(http.readyState == 4 && http.status == 200){
+        //     console.log(http.responseText);
+        //   }
+        // }
+        // http.send();
+
+        return false;
       }
-      http.send(params);
-    }
   </script>
 </head>
 <body>
-  <form onsubmit="event.preventDefault; return loggin(this);" action="#">
-    <input type="email" id="email" value="aslkdkjalskjd@asldjk.com" />
-    <input type="password" id="password" value="lasjdaksjhd" />
+  <form id="loginform" method="post">
+    <input type="email" id="email" value="blah@example.com" />
+    <input type="password" id="password" value="password123" />
     <input type="submit" value="login" />
   </form>
+    <form onsubmit="event.preventDefault; return session(this);" method="post">
+      <input type="submit" value="session" />
+    </form>
 </body>
 </html>

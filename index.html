@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>IceBerger | Welcome</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
 
@@ -13,6 +14,29 @@
   </head>
 
   <body>
+
+    <header id="unlogged">
+		<div class="container">
+			<div id="branding">
+        <img class="logo" src="images/IcebergerLogo.png" alt="" height="73" width"73">
+			</div>
+			<nav>
+				<ul>
+					<li>
+              <button id="currentPage">New Order</button>
+          </li>
+
+          <li>
+            <form action="pastorders.html" method="get">
+              <button>Past Orders</button>
+            </form>
+          </li>
+          <li><button>My Burgers</button></li>
+					<li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
     <div id="id01" class="modal">
 
@@ -30,13 +54,12 @@
         </div>
 
 
-        <form class="logcontainer" onsubmit="event.preventDefault; return login(this);" method="POST">
+        <form class="logcontainer" id="loginform" method="POST">
           <label><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="uname" id="logUname" required>
 
           <label><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
-          <input type="submit" value="login"/>
           <button id="log" type="submit">Login</button>
 
         </form>
@@ -93,24 +116,6 @@
       </div>
     </div>
 
-
-
-
-    <header id="unlogged">
-		<div class="container">
-			<div id="branding">
-        <img class="logo" src="images/IcebergerLogo.png" alt="" height="73" width"73">
-			</div>
-			<nav>
-				<ul>
-					<li><button id="newOrder">New Order</button></li>
-          <li><button>Past Orders</button></li>
-          <li><button>My Burgers</button></li>
-					<li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
 
   <section class="main">
     <header id="menu">

@@ -65,26 +65,27 @@ window.onclick = function(event) {
     }
 }
 
-function login(form){
-  // form.preventDefault;
-  // form.returnValue = false;
+$(document).ready(function() {
+  $("#loginform").submit(function (event) {
+    event.preventDefault();
 
-  // console.log("login submit");
-  // var http = new XMLHttpRequest();
-  // var url = "http://10.140.124.121/iceberger_backend/login.php";
-  // var name = document.getElementById("logUname").value;
-  // var password = document.getElementById("logPsw").value;
-  // var params = "email=" + name + "&password=" + password;
-  // http.open("POST", url, true);
-  //
-  // http.sendRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  //
-  // http.onreadystatechange = function() {
-  //   if(http.readyState == 4 && http.status == 200){
-  //     console.log(http.responseText);
-  //   }
-  // }
-  // http.send(params);
+    var name = document.getElementById("logUname").value;
+    var password = document.getElementById("logPsw").value;
+    $.getJSON("//10.140.124.121/iceberger_backend/login.php?callback=?", "email=" + name + "&password=" + password, function(data) {
+      console.log(data);
+      if(data['success']) {
+        $("#id01").hide();
+      }
+    });
 
-  // return false;
+    return false;
+  });
+});
+
+function login(){
+
+}
+
+function logout(){
+
 }
