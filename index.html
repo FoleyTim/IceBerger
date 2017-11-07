@@ -16,32 +16,32 @@
 
     <div id="id01" class="modal">
 
-      <form class="modal-content animate" action="/action_page.php">
+      <div class="modal-content animate">
 
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
         </div>
         <div class="title">
-          <h1>Loggin</h1>
+          <h1>Login</h1>
         </div>
         <div class="title">
           <h1>Sign Up</h1>
         </div>
 
 
-        <div class="logcontainer">
+        <form class="logcontainer" onsubmit="event.preventDefault; return login(this);" method="POST">
           <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="uname" id="logUname" required>
 
           <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-
+          <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
+          <input type="submit" value="login"/>
           <button id="log" type="submit">Login</button>
 
-        </div>
+        </form>
 
-        <div class="signcontainer">
+        <form class="signcontainer">
           <label><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -52,8 +52,8 @@
           <input type="password" placeholder="Enter Password" name="psw" required>
 
           <button id="log" type="submit">Sign Up</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
     <div id="id02" class="modal">
@@ -103,7 +103,9 @@
 			</div>
 			<nav>
 				<ul>
-					<li><button>New Order</button></li>
+					<li><button id="newOrder">New Order</button></li>
+          <li><button>Past Orders</button></li>
+          <li><button>My Burgers</button></li>
 					<li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
 				</ul>
 			</nav>
@@ -138,6 +140,7 @@
     </div>
 
     <section >
+
       <div id="Burgers" class="tabcontent">
           <h3>Populate Burgers</h3>
       </div>

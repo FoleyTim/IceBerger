@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    function loggin(form) {
+      console.log("form submit");
+
+      var http = new XMLHttpRequest();
+      var url = "http://10.140.124.121/iceberger_backend/login.php";
+      var name = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var params = "email=" + name + "&password=" + password;
+      http.open("POST", url, true);
+
+      http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200){
+          console.log(http.responseText);
+        }
+      }
+      http.send(params);
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="event.preventDefault; return loggin(this);" action="#">
+    <input type="email" id="email" value="aslkdkjalskjd@asldjk.com" />
+    <input type="password" id="password" value="lasjdaksjhd" />
+    <input type="submit" value="login" />
+  </form>
+</body>
+</html>

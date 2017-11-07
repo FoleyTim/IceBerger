@@ -79,7 +79,7 @@ header#unlogged li {
 	float: left;
 	display: inline;
 	padding: 0 20px 0 20px;
-  border-right: 2px solid #65BBC6;
+
   line-height:50px;
 }
 
@@ -116,6 +116,11 @@ section.main {
 
 #branding .logo {
   padding: 2px;
+}
+
+#newOrder{
+  padding-right: 40px;
+  border-right: 2px solid #65BBC6;
 }
 
 
@@ -402,7 +407,7 @@ button:hover {
   float: left;
   width: 50%;
   text-align: center;
-  
+
 }
 
 /* Center the image and position the close button */
