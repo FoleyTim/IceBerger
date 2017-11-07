@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>IceBerger | My Burgers</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header id="unlogged">
+    <div class="container">
+      <div id="branding">
+        <img class="logo" src="images/IcebergerLogo.png" alt="" height="65" width "65">
+      </div>
+      <nav>
+        <ul class="toolbar">
+          <li>
+            <form action="index.html" method="get">
+              <button>New Order</button>
+            </form>
+          </li>
+          <li>
+            <form action="pastorders.html" method="get">
+            <button>Past Orders</button>
+          </form>
+        </li>
+          <li><button id="currentPage">My Burgers</button></li>
+          <li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="id01" class="modal">
+
+    <div class="modal-content animate">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="title">
+        Login
+      </div>
+      <div class="title">
+        Sign Up
+      </div>
+
+      <form class="logcontainer" id="loginform" method="POST">
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="uname" id="logUname" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
+        <button id="log" type="submit">Login</button>
+      </form>
+
+      <form class="signcontainer" id="signupform" method="POST">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="signUname" required>
+
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id="signEmail" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="signPsw" required>
+
+        <button id="log" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="myburgercontent">
+
+
+    <div class="">
+      <img class="whitechoc" src="images/whitechoc2.png" alt="" width="133.554%">
+    </div>
+
+    <div id="Burgers" class="tabcontent">
+
+      <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+      <div class="burgerItem">
+        <img class="donut" src="images/donutburger.png" alt="" width="80%">
+      </div>
+      <h3>Title</h3>
+      <h3>Price</h3>
+    </div>
+
+    <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+    <div class="burgerItem">
+      <img class="donut" src="images/donutburger.png" alt="" width="80%">
+    </div>
+    <h3>Title</h3>
+    <h3>Price</h3>
+  </div>
+
+  <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+  <div class="burgerItem">
+    <img class="donut" src="images/donutburger.png" alt="" width="80%">
+  </div>
+  <h3>Title</h3>
+  <h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+<div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+<div class="burgerItem">
+  <img class="donut" src="images/donutburger.png" alt="" width="80%">
+</div>
+<h3>Title</h3>
+<h3>Price</h3>
+</div>
+
+
+      <div id="id04" class="myburgermodal">
+
+        <div class="myburgermodal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="images/donutburger.png" alt="Avatar" class="avatar">
+          </div>
+          <div class="ordertitle">
+            Burger Name
+          </div>
+          <div class="orderList">
+            <h3>Ingredients</h3>
+            <ul>
+              <li>Donut - $2.00</li>
+              <li>Vanilla Icecream - $1.00</li>
+              <li>Double Chocolate Brownie - $2.50</li>
+              <li>Caremel Sauce - $0.50</li>
+            </ul>
+          </div>
+          <button id="myburgbtn" type="submit">Edit</button>
+          <button id="myburgbtn" type="submit">Add</button>
+
+
+
+        </div>
+      </div>
+
+
+</body>
+
+</html>
