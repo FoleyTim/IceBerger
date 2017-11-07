@@ -169,6 +169,18 @@ section.main {
   border-bottom: #6A2D00 5px solid;
 }
 
+button#checkout_btn {
+  background-color: #D67DB3;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+  width: ;
+  display: inline-block;
+  text-align: center;
+}
+
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
@@ -632,6 +644,109 @@ img.avatar {
     transform: scale(1)
   }
 }
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Checkout
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+#back_btn {
+  font-size: 20px;
+  border: none;
+}
+
+#next_btn {
+  font-size: 20px;
+  border: none;
+}
+
+div.checktab {
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+
+div.checktab button {
+  float: left;
+  transition: 0.3s;
+  width: 33%;
+  color: #FFD66C;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
+}
+
+div.checktab button {
+  height: 51.5px;
+}
+
+/* Change background color of buttons on hover */
+
+div.checktab button:hover {
+}
+
+/* Create an active/current tablink class */
+
+div.checktab button.active {
+  border-bottom: #FFD66C 3px solid;
+}
+
+
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Payment
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+#back_btn {
+  font-size: 20px;
+  border: none;
+}
+
+#next_btn {
+  font-size: 20px;
+  border: none;
+}
+
+div.paytab {
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+
+div.paytab button {
+  float: left;
+  transition: 0.3s;
+  width: 33%;
+  color: #FFD66C;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
+}
+
+div.paytab button {
+  height: 51.5px;
+}
+
+/* Change background color of buttons on hover */
+
+div.paytab button:hover {
+}
+
+/* Create an active/current tablink class */
+
+div.paytab button.active {
+  border-bottom: #FFD66C 3px solid;
+}
+
+
+
 
 /*--------------------------------------------------
 ---------------------------------------------------

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>IceBerger | My Burgers</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header id="unlogged">
+    <div class="container">
+      <div id="branding">
+        <img class="logo" src="images/IcebergerLogo.png" alt="" height="65" width "65">
+      </div>
+      <nav>
+        <ul class="toolbar">
+
+          <li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <header id="menu">
+    <div class="container">
+      <div class="paytab">
+        <form action="checkout.html" method="get">
+          <button id="back_btn">Back</button>
+        </form>
+        <button>Payment</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="id01" class="modal">
+
+    <div class="modal-content animate">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="title">
+        Login
+      </div>
+      <div class="title">
+        Sign Up
+      </div>
+
+      <form class="logcontainer" id="loginform" method="POST">
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="uname" id="logUname" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="logPsw" required>
+        <button id="log" type="submit">Login</button>
+      </form>
+
+      <form class="signcontainer" id="signupform" method="POST">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id="signUname" required>
+
+        <label><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id="signEmail" required>
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="signPsw" required>
+
+        <button id="log" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="">
+
+
+    <div class="">
+      <img class="whitechoc" src="images/whitechoc2.png" alt="" width="133.554%">
+    </div>
+
+
+
+
+  </div>
+
+
+</body>
+
+</html>
