@@ -32,6 +32,12 @@ body {
   overflow-x: hidden;
 }
 
+#logo_btn {
+  margin-left: -6px;
+  opacity: 1;
+  margin-top: -1px;
+}
+
 .container {
   width: 80%;
   margin: auto;
@@ -790,33 +796,36 @@ div.paytab button.active {
   text-align: center;
 }
 
+.pay_content {
+  height: calc(100vh - 137px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .creditCardForm {
     max-width: 700px;
     background-color: #fff;
-    margin: 100px auto;
+    margin: 5px auto;
     overflow: hidden;
     padding: 25px;
+    padding-bottom: 10px;
     color: #4c4e56;
 }
 .creditCardForm label {
     width: 100%;
     margin-bottom: 10px;
 }
-.creditCardForm .heading h1 {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    color: #4c4e56;
-}
+
 .creditCardForm .payment {
     float: left;
     font-size: 18px;
     padding: 10px 25px;
-    margin-top: 20px;
+    margin-top: 0;
     position: relative;
 }
 .creditCardForm .payment .form-group {
     float: left;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
 }
 .creditCardForm .payment .form-control {
     line-height: 40px;
@@ -834,11 +843,15 @@ div.paytab button.active {
     width: 100%;
 }
 .creditCardForm #expiration-date {
-    width: 49%;
+    width: 54%;
 }
+
+.expdate_label {
+  float: left;
+}
+
 .creditCardForm #credit_cards {
-    width: 50%;
-    margin-top: 25px;
+    width: 46%;
     text-align: right;
 }
 .creditCardForm #pay-now {
@@ -847,10 +860,11 @@ div.paytab button.active {
 }
 .creditCardForm .payment .btn {
     width: 100%;
-    margin-top: 3px;
+    margin-top: -10px;
     font-size: 24px;
     background-color: #2ec4a5;
     color: white;
+    height: 50px;
 }
 .creditCardForm .payment select {
     padding: 10px;
@@ -902,7 +916,7 @@ button#log {
 }
 
 button:hover {
-  opacity: 0.8;
+  /*opacity: 0.8;*/
 }
 
 .title {
