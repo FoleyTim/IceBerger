@@ -62,8 +62,73 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+  var orderlist = [];
+  function addItem(id, name, price) {
+    var item = {};
+    item['id'] = id;
+    item['name'] = name;
+    item['price'] = price;
+    orderlist.push(item);
+    updateDocket();
+  }
+
+  function updateDocket() {
+    $("#docketitems").empty();
+
+    var totalPrice = 0;
+
+    orderlist.forEach(function (item, index) {
+      var listitem = document.createElement("li");
+      listitem.appendChild(document.createTextNode(item['name']+" - $"+item['price']));
+      var button = document.createElement("button");
+      button.appendChild(document.createTextNode("remove"));
+      listitem.appendChild(button);
+      button.addEventListener('click', function() {
+        // $("#docketitems").remove(listitem);
+        orderlist.splice(index, 1);
+        document.getElementById('docketitems').removeChild(listitem);
+        updateDocket();
+      });
+
+      document.getElementById('docketitems').appendChild(listitem);
+      // $("#docketitems").append("<li id=\"\">"+item['name']+" - $"+item['price']+"0</li>");
+      totalPrice += item['price'];
+    });
+    $("#total").empty();
+    $("#total").append("$" + totalPrice);
+  }
+
+  function removeItem(){
+    var index = orderlist.indexOf();
+
+  }
+
 
 $(document).ready(function() {
+
+
+  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=6", function(data) {
+      $('#Sides').empty();
+      data.forEach(function(category) {
+        category['items'].forEach(function(item) {
+        // console.log(item);
+          $('#Sides').append("<div class=\"itemcontainer animate\" onclick=\"addItem("+item['id']+", '"+item['name']+"', "+item['cost']+");\"><div class=\"burgerItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>"+item['name']+"</h3><h3>$"+item['cost']+"</h3></div>");
+        });
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
   openMenu(null, 'Burgers');
 
   $("#loginform").submit(function(event) {

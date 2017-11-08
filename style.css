@@ -187,6 +187,18 @@ button#checkout_btn {
   text-align: center;
 }
 
+#docketitems {
+  height: calc(100vh - 250px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#total {
+  border: none;
+  float: left;
+  width: 49%;
+}
+
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
