@@ -83,7 +83,7 @@
 
   <div id="id02" class="modal">
 
-    <div class="modal-content animate">
+    <div class="createmodal-content animate">
       <div class="imgcontainer">
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
         <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
@@ -92,27 +92,37 @@
       <div class="createtab">
         <button class="tablinks" onclick="openCreate(event, 'Buns')" id="defaultOpen">Buns</button>
         <button class="tablinks" onclick="openCreate(event, 'Fillings')">Fillings</button>
-        <button class="tablinks" onclick="openCreate(event, 'Cheese')">Cheese</button>
-        <button class="tablinks" onclick="openCreate(event, 'Salads')">Salads</button>
         <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button>
+        <button class="tablinks" onclick="openCreate(event, 'Sprinkles')">Sprinkles</button>
+        <!-- <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button> -->
+
+
+      </div>
+      <div id="sidebar">
+        <div class="createdocket">
+          <input type="text" placeholder="Name Your Burger" id="createName" required>
+          <ul id="createdocketitems">
+          </ul>
+          <h3 id="createtotal">$</h3>
+
+            <button id="checkout_btn" onclick="addCreateBurger()" type="submit">Add</button>
+
+        </div>
       </div>
 
       <div id="Buns" class="createBurgercontent">
 
-        <h3>Populate Buns</h3>
-
       </div>
       <div id="Fillings" class="createBurgercontent">
-        <h3>Populate Fillings</h3>
+
       </div>
-      <div id="Cheese" class="createBurgercontent">
-        <h3>Populate Cheese</h3>
-      </div>
-      <div id="Salads" class="createBurgercontent">
-        <h3>Populate Salads</h3>
-      </div>
+
       <div id="Sauce" class="createBurgercontent">
-        <h3>Populate Sauce</h3>
+
+      </div>
+
+      <div id="Sprinkles" class="createBurgercontent">
+
       </div>
     </div>
   </div>
@@ -269,12 +279,169 @@
       <ul id="docketitems">
       </ul>
       <h3 id="total">$</h3>
-      <form action="checkout.html" method="get">
-        <button id="checkout_btn" type="submit">Checkout</button>
-      </form>
+      <button id="checkout_btn" type="submit" onclick="checkout(); document.getElementById('id05').style.display='block'">Checkout</button>
+
 
     </div>
   </div>
+
+  <div id="id05" class="modal">
+
+    <div class="modal-content animate">
+
+      <div class="imgcontainer">
+        <span onclick="resetCheck(); document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="checktitle">
+        Checkout
+      </div>
+
+      <div class="reciept" id="rcpt">
+        <h3>My Order</h3>
+        <div class="current_payment">
+          <ul id="finalCheck">
+
+          </ul>
+        </div>
+        <button id="pay_btn" onclick="payment()" type="submit">Payment</button>
+      </div>
+
+      <div class="reciept" id="paynow">
+        <div class="pay_content">
+
+          <div class="creditCardForm">
+            <div class="payment">
+              <form>
+                <div class="form-group owner">
+                  <label for="owner">Owner</label>
+                  <input type="text" class="form-control" id="owner">
+                </div>
+                <div class="form-group CVV">
+                  <label for="cvv">CVV</label>
+                  <input type="text" class="form-control" id="cvv">
+                </div>
+                <div class="form-group" id="card-number-field">
+                  <label for="cardNumber">Card Number</label>
+                  <input type="text" class="form-control" id="cardNumber">
+                </div>
+                <label class="expdate_label">Expiration Date</label>
+                <div class="form-group" id="expiration-date">
+
+                  <select>
+                          <option value="01">January</option>
+                          <option value="02">February </option>
+                          <option value="03">March</option>
+                          <option value="04">April</option>
+                          <option value="05">May</option>
+                          <option value="06">June</option>
+                          <option value="07">July</option>
+                          <option value="08">August</option>
+                          <option value="09">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                      </select>
+                  <select>
+                          <option value="16"> 2017</option>
+                          <option value="17"> 2018</option>
+                          <option value="18"> 2019</option>
+                          <option value="19"> 2020</option>
+                          <option value="20"> 2021</option>
+                          <option value="21"> 2022</option>
+                      </select>
+                </div>
+                <div class="form-group" id="credit_cards">
+                  <img src="images/visa.jpg" id="visa" width="17%">
+                  <img src="images/mastercard.jpg" id="mastercard" width="17%">
+                  <img src="images/amex.jpg" id="amex" width="17%">
+                </div>
+                <div class="form-group" id="pay-now">
+                  <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+    </div>
+  </div>
+
+  <div id="id06" class="modal">
+
+    <div class="modal-content">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="checktitle">
+        Payment
+      </div>
+
+      <div class="reciept">
+        <div class="pay_content">
+
+          <div class="creditCardForm">
+            <div class="payment">
+              <form>
+                <div class="form-group owner">
+                  <label for="owner">Owner</label>
+                  <input type="text" class="form-control" id="owner">
+                </div>
+                <div class="form-group CVV">
+                  <label for="cvv">CVV</label>
+                  <input type="text" class="form-control" id="cvv">
+                </div>
+                <div class="form-group" id="card-number-field">
+                  <label for="cardNumber">Card Number</label>
+                  <input type="text" class="form-control" id="cardNumber">
+                </div>
+                <label class="expdate_label">Expiration Date</label>
+                <div class="form-group" id="expiration-date">
+
+                  <select>
+                          <option value="01">January</option>
+                          <option value="02">February </option>
+                          <option value="03">March</option>
+                          <option value="04">April</option>
+                          <option value="05">May</option>
+                          <option value="06">June</option>
+                          <option value="07">July</option>
+                          <option value="08">August</option>
+                          <option value="09">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                      </select>
+                  <select>
+                          <option value="16"> 2017</option>
+                          <option value="17"> 2018</option>
+                          <option value="18"> 2019</option>
+                          <option value="19"> 2020</option>
+                          <option value="20"> 2021</option>
+                          <option value="21"> 2022</option>
+                      </select>
+                </div>
+                <div class="form-group" id="credit_cards">
+                  <img src="images/visa.jpg" id="visa" width="17%">
+                  <img src="images/mastercard.jpg" id="mastercard" width="17%">
+                  <img src="images/amex.jpg" id="amex" width="17%">
+                </div>
+                <div class="form-group" id="pay-now">
+                  <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+        <button id="checkout_btn" type="submit" onclick="document.getElementById('id07').style.display='block'">Payment</button>
+      </div>
+
+    </div>
+  </div>
+
 
 </body>
 

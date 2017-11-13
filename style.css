@@ -189,7 +189,7 @@ button#checkout_btn {
 
 #docketitems {
   height: calc(100vh - 250px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -209,7 +209,7 @@ button#checkout_btn {
 
 .content {
   height: calc(100vh - 137px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -276,7 +276,7 @@ div.tab button.active {
 }
 
 .itemcontainer {
-  width: 20%;
+  width: 19%;
   float: left;
   margin-right: 50px;
   margin-bottom: 60px;
@@ -322,7 +322,7 @@ div.tab button.active {
 
 .pastcontent {
   height: calc(100vh - 78px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -408,7 +408,7 @@ button#order {
 
 .myburgercontent {
   height: calc(100vh - 78px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -512,6 +512,7 @@ button#myburgbtn {
 .create button {
   color: #F9F9E0;
   font-size: 20px;
+
 }
 
 .whitechoc {
@@ -525,6 +526,8 @@ button#myburgbtn {
 /* Style the tab */
 
 div.createtab {
+  float: left;
+  width: 70%;
   margin-top: 7px;
   overflow: hidden;
 }
@@ -534,14 +537,11 @@ div.createtab {
 div.createtab button {
   float: left;
   transition: 0.3s;
-  width: 20%;
+  width: 25%;
   color: #6A2D00;
   text-decoration: none;
   font-size: 30px;
   font-family: 'Galada', cursive;
-}
-
-div.createtab button {
   height: 51.5px;
 }
 
@@ -560,12 +560,75 @@ div.createtab button.active {
 
 /* Style the tab content */
 
+.createmodal-content {
+  background-color: #F9F9E0;
+  color: #6A2D00;
+  margin: -30px auto 0 auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
 .createBurgercontent {
   display: none;
   padding: 6px 12px;
   border-top: none;
-  background: rgba(0, 0, 0, 0.3);
+  width: 70%;
+  height: 320px;
+  overflow-y: auto;
 }
+
+.createItem {
+  width: 120px;
+  height: 120px;
+  background: #9A4198;
+  border: #FFD66C 5px solid;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+}
+
+.createcontainer {
+  float: left;
+  margin-bottom: 60px;
+  width: 24%;
+}
+
+.createcontainer h3 {
+  background: #FFD66C;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.createdocket {
+  padding: 15px;
+  padding-top: 0;
+  background: #F9F9E0;
+  color: #6A2D00;
+  text-align: center;
+  height: calc(100vh - 297px);
+}
+
+.createdocket h3 {
+  border-bottom: #6A2D00 5px solid;
+}
+
+#createdocketitems {
+  height: calc(100vh - 370px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#createtotal {
+  border: none;
+  float: left;
+  width: 39%;
+}
+
+
 
 /* Center the image and position the close button */
 
@@ -670,6 +733,32 @@ img.avatar {
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
+
+.checktitle {
+  margin-top: -15px;
+  margin-bottom: 10px;
+  float: left;
+  width: 100%;
+  text-align: center;
+  background: #6A2D00;
+  color: #FFD66C;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
+  padding-top: 10px;
+}
+
+button#pay_btn {
+  background-color: #D67DB3;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+  width: ;
+  display: inline-block;
+  text-align: center;
+}
+
 #back_btn {
   font-size: 20px;
   border: none;
@@ -743,6 +832,11 @@ div.checktab button.active {
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
+
+#paynow {
+  display: none;
+}
+
 #back_btn {
   font-size: 20px;
   border: none;
@@ -810,7 +904,7 @@ div.paytab button.active {
 
 .pay_content {
   height: calc(100vh - 137px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -820,7 +914,8 @@ div.paytab button.active {
     margin: 5px auto;
     overflow: hidden;
     padding: 25px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    padding-top: 10px;
     color: #4c4e56;
 }
 .creditCardForm label {
@@ -837,7 +932,6 @@ div.paytab button.active {
 }
 .creditCardForm .payment .form-group {
     float: left;
-    margin-bottom: 7px;
 }
 .creditCardForm .payment .form-control {
     line-height: 40px;

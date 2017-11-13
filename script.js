@@ -1,3 +1,6 @@
+var orderlist = [];
+var createlist = [];
+
 function openMenu(evt, item) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -41,6 +44,9 @@ function openCreate(evt, item) {
   }
   document.getElementById(item).style.display = "block";
   evt.currentTarget.className += " active";
+
+
+
 }
 
 
@@ -62,7 +68,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-  var orderlist = [];
+
+
   function addItem(id, name, price) {
     var item = {};
     item['id'] = id;
@@ -70,6 +77,60 @@ window.onclick = function(event) {
     item['price'] = price;
     orderlist.push(item);
     updateDocket();
+  }
+
+  function addcreateitem(id, name, price) {
+    var item = {};
+    item['id'] = id;
+    item['name'] = name;
+    item['price'] = price;
+    createlist.push(item);
+    updateCreate();
+  }
+
+  function updateCreate(){
+    $("#createdocketitems").empty();
+
+    var totalPrice = 0;
+
+    createlist.forEach(function (item, index){
+      var listitem = document.createElement("li");
+      listitem.appendChild(document.createTextNode(item['name']+" - $"+ item['price']));
+      var button = document.createElement("button");
+      button.appendChild(document.createTextNode("X"));
+      listitem.appendChild(button);
+      button.addEventListener('click', function() {
+        createlist.splice(index, 1);
+        document.getElementById('createdocketitems').removeChild(listitem);
+        updateCreate();
+      });
+
+      document.getElementById('createdocketitems').appendChild(listitem);
+      totalPrice += item['price'];
+    });
+    $("#createtotal").empty();
+    $("#createtotal").append("$" + totalPrice);
+  }
+
+  function addCreateBurger() {
+    var totalPrice = 0;
+
+    createlist.forEach(function (item, index){
+      totalPrice += item['price'];
+    });
+
+    var item = {};
+    item['id'] = null;
+    item['name'] = $('#createName').val() || "Custom Burger";
+    item['price'] = totalPrice;
+    item['ingredients'] = createlist;
+    orderlist.push(item);
+    updateDocket();
+    document.getElementById('id02').style.display='none'
+
+    createlist = [];
+    $('#createName').val('');
+    updateCreate();
   }
 
   function updateDocket() {
@@ -98,15 +159,46 @@ window.onclick = function(event) {
     $("#total").append("$" + totalPrice);
   }
 
-  function removeItem(){
-    var index = orderlist.indexOf();
+  function checkout(){
+    $("#finalCheck").empty();
 
+    var totalPrice = 0;
+
+    orderlist.forEach(function (item, index) {
+      var listitem = document.createElement("li");
+      listitem.appendChild(document.createTextNode(item['name']+" - $"+item['price']));
+
+
+      document.getElementById('finalCheck').appendChild(listitem);
+      // $("#docketitems").append("<li id=\"\">"+item['name']+" - $"+item['price']+"0</li>");
+      totalPrice += item['price'];
+    });
   }
+
+  function payment() {
+    var check = document.getElementById("rcpt");
+    var pay = document.getElementById("paynow");
+    if (check.style.display === "none") {
+        check.style.display = "block";
+        pay.style.display = "none";
+    } else {
+        check.style.display = "none";
+        pay.style.display = "block";
+    }
+}
+
+function resetCheck(){
+  var check = document.getElementById("rcpt");
+  var pay = document.getElementById("paynow");
+
+  check.style.display = "block";
+  pay.style.display = "none";
+}
 
 
 $(document).ready(function() {
 
-
+  /*Populates the sides from the database*/
   $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=6", function(data) {
       $('#Sides').empty();
       data.forEach(function(category) {
@@ -116,6 +208,51 @@ $(document).ready(function() {
         });
       });
     });
+
+    /*Populates the buns from the database*/
+    $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=1", function(data) {
+        $('#Buns').empty();
+        data.forEach(function(category) {
+          category['items'].forEach(function(item) {
+          // console.log(item);
+            $('#Buns').append("<div class=\"createcontainer animate\" onclick=\"addcreateitem("+item['id']+", '"+item['name']+"', "+item['cost']+");\"><div class=\"createItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>"+item['name']+"</h3><h3>$"+item['cost']+"</h3></div>");
+          });
+        });
+      });
+
+      /*Populates the fillings from the database*/
+      $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=2", function(data) {
+          $('#Fillings').empty();
+          data.forEach(function(category) {
+            category['items'].forEach(function(item) {
+            // console.log(item);
+              $('#Fillings').append("<div class=\"createcontainer animate\" onclick=\"addcreateitem("+item['id']+", '"+item['name']+"', "+item['cost']+");\"><div class=\"createItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>"+item['name']+"</h3><h3>$"+item['cost']+"</h3></div>");
+            });
+          });
+        });
+
+        /*Populates the sauce from the database*/
+        $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=3", function(data) {
+            $('#Sauce').empty();
+            data.forEach(function(category) {
+              category['items'].forEach(function(item) {
+              // console.log(item);
+                $('#Sauce').append("<div class=\"createcontainer animate\" onclick=\"addcreateitem("+item['id']+", '"+item['name']+"', "+item['cost']+");\"><div class=\"createItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>"+item['name']+"</h3><h3>$"+item['cost']+"</h3></div>");
+              });
+            });
+          });
+
+          /*Populates the sprinkles from the database*/
+          $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=4", function(data) {
+              $('#Sprinkles').empty();
+              data.forEach(function(category) {
+                category['items'].forEach(function(item) {
+                // console.log(item);
+                  $('#Sprinkles').append("<div class=\"createcontainer animate\" onclick=\"addcreateitem("+item['id']+", '"+item['name']+"', "+item['cost']+");\"><div class=\"createItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>"+item['name']+"</h3><h3>$"+item['cost']+"</h3></div>");
+                });
+              });
+            });
+
 
 
 
@@ -130,6 +267,7 @@ $(document).ready(function() {
 
 
   openMenu(null, 'Burgers');
+  document.getElementById('default').className += ' active';
 
   $("#loginform").submit(function(event) {
     event.preventDefault();
