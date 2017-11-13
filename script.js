@@ -250,29 +250,29 @@ function checkStatus() {
 $(document).ready(function() {
 
   /*Populates the sides from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=6", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=6", function(data) {
     $('#Sides').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
         // console.log(item);
-        $('#Sides').append("<div class=\"itemcontainer animate\" onclick=\"addItem(" + item['id'] + ", '" + item['name'] + "', " + item['cost'] + ");\"><div class=\"burgerItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>" + item['name'] + "</h3><h3>$" + item['cost'] + "</h3></div>");
+        $('#Sides').append("<div class=\"itemcontainer animate\" onclick=\"addItem(" + item['id'] + ", '" + item['name'] + "', " + item['cost'] + ");\"><div class=\"burgerItem\"><img class=\"ingredient\" src=\"images/ingredients/sides/" + item['id'] + ".png\" alt=\"\" width=\"80%\"></div><h3>" + item['name'] + "</h3><h3>$" + item['cost'] + "</h3></div>");
       });
     });
   });
 
   /*Populates the drinks from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=5", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=5", function(data) {
     $('#Drinks').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
         // console.log(item);
-        $('#Drinks').append("<div class=\"itemcontainer animate\" onclick=\"addItem(" + item['id'] + ", '" + item['name'] + "', " + item['cost'] + ");\"><div class=\"burgerItem\"><img class=\"donut\" src=\"images/donutburger.png\" alt=\"\" width=\"80%\"></div><h3>" + item['name'] + "</h3><h3>$" + item['cost'] + "</h3></div>");
+        $('#Drinks').append("<div class=\"itemcontainer animate\" onclick=\"addItem(" + item['id'] + ", '" + item['name'] + "', " + item['cost'] + ");\"><div class=\"burgerItem\"><img class=\"ingredient\" src=\"images/ingredients/drinks/" + item['id'] + ".png\" alt=\"\" width=\"80%\"></div><h3>" + item['name'] + "</h3><h3>$" + item['cost'] + "</h3></div>");
       });
     });
   });
 
   /*Populates the buns from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=1", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=1", function(data) {
     $('#Buns').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -283,7 +283,7 @@ $(document).ready(function() {
   });
 
   /*Populates the fillings from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=2", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=2", function(data) {
     $('#Fillings').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -294,7 +294,7 @@ $(document).ready(function() {
   });
 
   /*Populates the sauce from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=3", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=3", function(data) {
     $('#Sauce').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -305,7 +305,7 @@ $(document).ready(function() {
   });
 
   /*Populates the sprinkles from the database*/
-  $.getJSON("http://10.140.124.121/iceberger_backend/api.php?callback=?", "method=getinventory&category=4", function(data) {
+  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=4", function(data) {
     $('#Sprinkles').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {

@@ -171,10 +171,6 @@ section.main {
   height: calc(100vh - 107px);
 }
 
-.docket h3 {
-  border-bottom: #6A2D00 5px solid;
-}
-
 button#checkout_btn {
   background-color: #D67DB3;
   color: white;
@@ -188,9 +184,12 @@ button#checkout_btn {
 }
 
 #docketitems {
-  height: calc(100vh - 250px);
+  padding-top: 20px;
+  border-top: #6A2D00 2px dashed;
+  height: calc(100vh - 261px);
   overflow-y: auto;
   overflow-x: hidden;
+  border-bottom: #6A2D00 2px dashed;
 }
 
 #total {
@@ -616,6 +615,10 @@ div.createtab button.active {
   margin-top: 10px;
 }
 
+.ingredient:hover {
+  width: 90%;
+}
+
 .createcontainer {
   float: left;
   margin-bottom: 60px;
@@ -638,9 +641,6 @@ div.createtab button.active {
   height: calc(100vh - 297px);
 }
 
-.createdocket h3 {
-  border-bottom: #6A2D00 5px solid;
-}
 
 #createdocketitems {
   height: calc(100vh - 370px);
