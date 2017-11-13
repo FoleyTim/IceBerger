@@ -7,6 +7,7 @@
   <title>IceBerger | Welcome</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <script src="https://use.fontawesome.com/b5f7df8d43.js"></script>
   <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA17D/AGnS6QDBgv8AHanHAOLE/wC+ff8AIr7fAMyZ/wDt2/8Awoj8AMmU/wDx4/8A69b/AAAAAAAAAAAAAAAAAAAAAAAAAABEREAAAAAARHd3dEAAAAR3d3IiJAAAR3dyIiIiQABHdyIiIiJABHdyJEQmIiQEdyJAAGMyZAR3IkAAO2KzBHIiQAA7GxMEciIkQ7ER2ABCIjIjsRkwAEIjYyMRGYAABCOxERzIAAAARhXcyIAAAAAAOqiAAAD//wAA/B8AAPAHAADgAwAAwAEAAMABAACAAAAAgcAAAIHAAACBwAAAgAAAAMABAADAAQAA4AMAAPAHAAD8HwAA"
@@ -26,21 +27,185 @@
           <li>
             <button id="currentPage">New Order</button>
           </li>
-          <li>
-            <form action="pastorders.html" method="get">
-              <button>Past Orders</button>
-            </form>
-          </li>
-          <li>
-            <form action="myburgers.html" method="get">
-              <button>My Burgers</button>
-            </form>
-          </li>
-          <li><button onclick="document.getElementById('id01').style.display='block'">Login</button></li>
+          <li id="pastOrders"><button onclick="document.getElementById('id08').style.display='block'">Past Orders</button></li>
+          <li id="myBurgers"><button onclick="document.getElementById('id07').style.display='block'">My Burgers</button></li>
+          <li><button id="log_sign">Login</button></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <div id="id07" class="modal">
+
+    <div class="modal-content animate">
+
+
+      <div class="myburgercontainer">
+
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="myburgerstitle">
+          My Burgers
+        </div>
+
+        <div class="myburgerscroll">
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="id08" class="modal">
+
+    <div class="modal-content animate">
+
+
+      <div class="pastordercontainer">
+
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="myburgerstitle">
+          Past Orders
+        </div>
+
+        <div class="pastorderscroll">
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+
+          <div class="itemcontainer animate" onclick="document.getElementById('id04').style.display='block';openCreate(event, 'Buns');">
+            <div class="burgerItem">
+              <img class="donut" src="images/donutburger.png" alt="" width="80%">
+            </div>
+            <h3>Title</h3>
+            <h3>Price</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <div id="id01" class="modal">
 
@@ -91,7 +256,7 @@
 
       <div class="createtab">
         <button class="tablinks" onclick="openCreate(event, 'Buns')" id="defaultOpen">Buns</button>
-        <button class="tablinks" onclick="openCreate(event, 'Fillings')">Fillings</button>
+        <button class="tablinks" onclick="openCreate(event, 'Fillings')">Ice Cream</button>
         <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button>
         <button class="tablinks" onclick="openCreate(event, 'Sprinkles')">Sprinkles</button>
         <!-- <button class="tablinks" onclick="openCreate(event, 'Sauce')">Sauce</button> -->
@@ -103,9 +268,9 @@
           <input type="text" placeholder="Name Your Burger" id="createName" required>
           <ul id="createdocketitems">
           </ul>
-          <h3 id="createtotal">$</h3>
+          <h3 id="createtotal">$0.00</h3>
 
-            <button id="checkout_btn" onclick="addCreateBurger()" type="submit">Add</button>
+          <button id="checkout_btn" onclick="addCreateBurger()" type="submit">Add</button>
 
         </div>
       </div>
@@ -262,15 +427,15 @@
             </div>
           </div>
         </div>
-          <div id="Sides" class="tabcontent">
-            <h3>Populate Sides</h3>
-          </div>
+        <div id="Sides" class="tabcontent">
 
-          <div id="Drinks" class="tabcontent">
-            <h3>Populate Drinks</h3>
-          </div>
+        </div>
+
+        <div id="Drinks" class="tabcontent">
+
+        </div>
       </section>
-      </div>
+    </div>
   </section>
 
   <div id="sidebar">
@@ -278,7 +443,7 @@
       <h3>My Order</h3>
       <ul id="docketitems">
       </ul>
-      <h3 id="total">$</h3>
+      <h3 id="total">$0.00</h3>
       <button id="checkout_btn" type="submit" onclick="checkout(); document.getElementById('id05').style.display='block'">Checkout</button>
 
 
@@ -293,7 +458,7 @@
         <span onclick="resetCheck(); document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
         <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
       </div>
-      <div class="checktitle">
+      <div class="checktitle" id="rcptTitle">
         Checkout
       </div>
 
@@ -312,7 +477,7 @@
 
           <div class="creditCardForm">
             <div class="payment">
-              <form>
+              <div>
                 <div class="form-group owner">
                   <label for="owner">Owner</label>
                   <input type="text" class="form-control" id="owner">
@@ -357,90 +522,25 @@
                   <img src="images/amex.jpg" id="amex" width="17%">
                 </div>
                 <div class="form-group" id="pay-now">
-                  <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                  <button type="submit" class="btn btn-default" id="confirm-purchase" onclick="confirm(); checkout()">Confirm</button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
-
-    </div>
-  </div>
-
-  <div id="id06" class="modal">
-
-    <div class="modal-content">
-
-      <div class="imgcontainer">
-        <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <img src="images/IcebergerLogo.png" alt="Avatar" class="avatar">
-      </div>
-      <div class="checktitle">
-        Payment
-      </div>
-
-      <div class="reciept">
-        <div class="pay_content">
-
-          <div class="creditCardForm">
-            <div class="payment">
-              <form>
-                <div class="form-group owner">
-                  <label for="owner">Owner</label>
-                  <input type="text" class="form-control" id="owner">
-                </div>
-                <div class="form-group CVV">
-                  <label for="cvv">CVV</label>
-                  <input type="text" class="form-control" id="cvv">
-                </div>
-                <div class="form-group" id="card-number-field">
-                  <label for="cardNumber">Card Number</label>
-                  <input type="text" class="form-control" id="cardNumber">
-                </div>
-                <label class="expdate_label">Expiration Date</label>
-                <div class="form-group" id="expiration-date">
-
-                  <select>
-                          <option value="01">January</option>
-                          <option value="02">February </option>
-                          <option value="03">March</option>
-                          <option value="04">April</option>
-                          <option value="05">May</option>
-                          <option value="06">June</option>
-                          <option value="07">July</option>
-                          <option value="08">August</option>
-                          <option value="09">September</option>
-                          <option value="10">October</option>
-                          <option value="11">November</option>
-                          <option value="12">December</option>
-                      </select>
-                  <select>
-                          <option value="16"> 2017</option>
-                          <option value="17"> 2018</option>
-                          <option value="18"> 2019</option>
-                          <option value="19"> 2020</option>
-                          <option value="20"> 2021</option>
-                          <option value="21"> 2022</option>
-                      </select>
-                </div>
-                <div class="form-group" id="credit_cards">
-                  <img src="images/visa.jpg" id="visa" width="17%">
-                  <img src="images/mastercard.jpg" id="mastercard" width="17%">
-                  <img src="images/amex.jpg" id="amex" width="17%">
-                </div>
-                <div class="form-group" id="pay-now">
-                  <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
-                </div>
-              </form>
-            </div>
-          </div>
-
 
         </div>
-        <button id="checkout_btn" type="submit" onclick="document.getElementById('id07').style.display='block'">Payment</button>
       </div>
 
-    </div>
-  </div>
+      <div class="reciept" id="success">
+        <h3>Thank You</h3>
+
+        <p>Your order has been sent to the kitchen.</p>
+        <p>You can track your order progress below.</p>
+        <div id="progress">
+          <h4>Waiting</h4>
+        </div>
+      </div>
+
 
 
 </body>

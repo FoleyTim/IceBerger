@@ -319,6 +319,14 @@ div.tab button.active {
 ----------------------------------------------------
 ----------------------------------------------------**/
 
+.pastordercontainer {
+  /*height: calc(100vh - 78px);*/
+}
+.pastorderscroll {
+  height: calc(100vh - 278px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 .pastcontent {
   height: calc(100vh - 78px);
@@ -405,9 +413,23 @@ button#order {
 ----------------------------------------------------
 ----------------------------------------------------**/
 
+.myburgerstitle {
+  margin-top: -15px;
+  /*float: left;*/
+  width: 100%;
+  text-align: center;
+  background: #6A2D00;
+  color: #FFD66C;
+  font-size: 30px;
+  font-family: 'Galada', cursive;
+  padding-top: 10px;
+}
 
-.myburgercontent {
-  height: calc(100vh - 78px);
+.myburgercontainer {
+  /*height: calc(100vh - 78px);*/
+}
+.myburgerscroll {
+  height: calc(100vh - 278px);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -588,6 +610,10 @@ div.createtab button.active {
   margin: 0 auto;
   margin-bottom: 10px;
 
+}
+
+.ingredient {
+  margin-top: 10px;
 }
 
 .createcontainer {
@@ -989,6 +1015,25 @@ div.paytab button.active {
     .creditCardForm #credit_cards {
         text-align: left;
     }
+}
+
+
+/*--------------------------------------------------
+---------------------------------------------------
+---------------------------------------------------
+                  Success
+----------------------------------------------------
+----------------------------------------------------
+----------------------------------------------------**/
+
+#success {
+  display: none;
+}
+
+
+
+.progress h4 {
+  margin: auto;
 }
 
 
