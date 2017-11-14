@@ -173,7 +173,10 @@ function checkout() {
     // $("#docketitems").append("<li id=\"\">"+item['name']+" - $"+item['price']+"0</li>");
     totalPrice += item['price'];
   });
+  $("#tot").empty();
+  $("#tot").append("Total - $" + totalPrice);
 }
+
 
 function payment() {
   var check = document.getElementById("rcpt");
@@ -223,34 +226,111 @@ function resetCheck() {
 var currentOrder = null;
 var timer = null;
 function checkStatus() {
-  $.getJSON("//10.140.124.121/iceberger_backend/api.php?callback=?", "method=checkorder&order=" + currentOrder, function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=checkorder&order=" + currentOrder, function(data) {
     console.log(data);
     if(data['status'] == 0) {
 
       var progress = document.getElementById("progress");
-      progress.style.backgroundColor = "blue";
+      progress.style.backgroundColor = "#6A2D00";
       progress.style.color = "white";
       progress.style.height = "50px";
+      progress.style.textAlign = "center";
+      progress.style.paddingTop = "10px";
+      progress.style.paddingBottom = "15px";
+      progress.style.marginBottom = "50px";
+      progress.style.marginTop = "100px";
+      $('#stat').html('Your Order Is In The Queue');
     }
     else if(data['status'] == 1) {
       var progress = document.getElementById("progress");
-      progress.style.backgroundColor = "red";
+      progress.style.backgroundColor = "#9A4198";
       progress.style.color = "white";
       progress.style.height = "50px";
+      progress.style.textAlign = "center";
+      progress.style.paddingTop = "10px";
+      progress.style.paddingBottom = "15px";
+      progress.style.marginBottom = "50px";
+      progress.style.marginTop = "100px";
+      $('#stat').html('Your Order Is Being Made');
     }
     else if(data['status'] == 2) {
       var progress = document.getElementById("progress");
-      progress.style.backgroundColor = "green";
+      progress.style.backgroundColor = "#147871";
       progress.style.color = "white";
       progress.style.height = "50px";
+      progress.style.textAlign = "center";
+      progress.style.paddingTop = "10px";
+      progress.style.paddingBottom = "15px";
+      progress.style.marginBottom = "50px";
+      progress.style.marginTop = "100px";
+      $('#stat').html('Your Order Is Complete');
     }
   });
 }
 
 $(document).ready(function() {
 
+  /*Populates the burgers from the database*/
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getpresetburgers", function(data) {
+    $('#Burgers').empty();
+    data['burgers'].forEach(function(burger) {
+      var burgeritem = document.createElement("div");
+
+      var totalPrice = 0;
+      burger['ingredients'].forEach(function(ingredient) {
+        totalPrice += parseInt(ingredient['cost']);
+      });
+      burgeritem.addEventListener('click', function() {
+        console.log("burgerclick");
+        document.getElementById('id04').style.display='block';
+        $(".ordertitle").text(burger['name']);
+        document.getElementById('setburgimg').src = 'images/ingredients/burger/' + burger['id'] + '.png';
+        $("#presetIngredients").empty();
+
+        var ingredientslist = [];
+
+        burger['ingredients'].forEach(function(ingredient) {
+          var ingredientitem = document.createElement("li");
+          ingredientitem.innerHTML = ingredient['name'];
+          document.getElementById('presetIngredients').appendChild(ingredientitem);
+
+          var ingrdobject = {};
+          ingrdobject['id'] = ingredient['id'];
+          ingrdobject['name'] = ingredient['name'];
+          ingrdobject['price'] = ingredient['cost'];
+          ingredientslist.push(ingrdobject);
+        });
+
+        $("#presetButton").empty();
+        var addButton = document.createElement("button");
+        addButton.setAttribute('id', 'myburgbtn');
+        addButton.setAttribute('type', 'submit');
+        addButton.appendChild(document.createTextNode('Add'));
+        document.getElementById('presetButton').appendChild(addButton);
+
+        addButton.addEventListener('click', function() {
+            console.log("preset add");
+
+            var orderitem = {};
+            orderitem['id'] = null;
+            orderitem['name'] = burger['name'];
+            orderitem['price'] = totalPrice;
+            orderitem['ingredients'] = ingredientslist;
+            orderlist.push(orderitem);
+            updateDocket();
+            document.getElementById('id04').style.display = 'none'
+        });
+
+      });
+      burgeritem.innerHTML = "<div class=\"itemcontainer animate\"><div class=\"burgerItem\"><img class=\"ingredient\" src=\"images/ingredients/burger/" + burger['id'] + ".png\" alt=\"\" width=\"80%\"></div><h3>" + burger['name'] + "</h3><h3>$" + totalPrice + "</h3></div>";
+
+
+      document.getElementById('Burgers').appendChild(burgeritem);
+    });
+  });
+
   /*Populates the sides from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=6", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=6", function(data) {
     $('#Sides').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -261,7 +341,7 @@ $(document).ready(function() {
   });
 
   /*Populates the drinks from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=5", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=5", function(data) {
     $('#Drinks').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -272,7 +352,7 @@ $(document).ready(function() {
   });
 
   /*Populates the buns from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=1", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=1", function(data) {
     $('#Buns').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -283,7 +363,7 @@ $(document).ready(function() {
   });
 
   /*Populates the fillings from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=2", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=2", function(data) {
     $('#Fillings').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -294,7 +374,7 @@ $(document).ready(function() {
   });
 
   /*Populates the sauce from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=3", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=3", function(data) {
     $('#Sauce').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -305,7 +385,7 @@ $(document).ready(function() {
   });
 
   /*Populates the sprinkles from the database*/
-  $.getJSON("http://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=4", function(data) {
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getinventory&category=4", function(data) {
     $('#Sprinkles').empty();
     data['inventory'].forEach(function(category) {
       category['items'].forEach(function(item) {
@@ -316,7 +396,7 @@ $(document).ready(function() {
   });
 
   $('#confirm-purchase').click(function(e) {
-    $.getJSON("//10.140.124.121/iceberger_backend/api.php?callback=?", "method=submitorder&user="+currentUser+"&order=" + JSON.stringify(orderlist), function(data) {
+    $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=submitorder&user="+currentUser+"&order=" + JSON.stringify(orderlist), function(data) {
       console.log(data);
       if (data['success']) {
         currentOrder = data['id'];
@@ -326,38 +406,169 @@ $(document).ready(function() {
     });
   });
 
-if($.cookie('user_id')) {
-$("#pastOrders").show();
-$("#myBurgers").show();
-$("#log_sign").text("Logout - " +$.cookie('user_name'));
-logged_in = true;
- currentUser = $.cookie('user_id');
+if($.cookie('user_id') && $.cookie('user_name')) {
+  login($.cookie('user_id'), $.cookie('user_name'));
 } else {
+  logout();
+}
+
+function login(id, name) {
+  $("#id01").hide();
+  $("#pastOrders").show();
+  $("#myBurgers").show();
+  $("#log_sign").text("Logout - " + name);
+  logged_in = true;
+  currentUser = id;
+  $.cookie('user_id', id);
+  $.cookie('user_name', name);
+
+  /*Populates myburgers from the database*/
+  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getuserburgers&user=" + id, function(data) {
+    $('#myburgerslist').empty();
+    data['burgers'].forEach(function(burger) {
+
+      var totalPrice = 0;
+      var ingredientslist = [];
+      burger['ingredients'].forEach(function(ingredient) {
+        totalPrice += parseInt(ingredient['cost']);
+
+        var ingrdobject = {};
+        ingrdobject['id'] = ingredient['id'];
+        ingrdobject['name'] = ingredient['name'];
+        ingrdobject['price'] = ingredient['cost'];
+        ingredientslist.push(ingrdobject);
+      });
+
+      var myburgcase = document.createElement("div");
+      myburgcase.setAttribute('class', 'myburgcase');
+
+        var myburgerItem = document.createElement("div");
+        myburgerItem.setAttribute('class', 'myburgerItem');
+        myburgcase.appendChild(myburgerItem);
+
+          var myburgAdd = document.createElement("button");
+          myburgAdd.setAttribute('class', 'myburgAdd');
+          myburgAdd.appendChild(document.createTextNode('Add'));
+          myburgerItem.appendChild(myburgAdd);
+
+          var price = document.createElement("h3");
+          price.setAttribute('class', 'price');
+          price.appendChild(document.createTextNode(totalPrice));
+          myburgerItem.appendChild(price);
+
+          var date = document.createElement("h3");
+          date.setAttribute('class', 'date');
+          date.appendChild(document.createTextNode(burger['name']));
+          myburgerItem.appendChild(date);
+
+          var name = document.createElement("h3");
+          name.setAttribute('class', 'name');
+          name.appendChild(document.createTextNode(burger['name']));
+          myburgerItem.appendChild(name);
+
+        var myingredcase = document.createElement("div");
+        myingredcase.setAttribute('class', 'myingredcase');
+        myingredcase.style.display = 'none';
+        myburgcase.appendChild(myingredcase);
+
+          var myburgingred = document.createElement("ul");
+          myburgingred.setAttribute('class', 'myburgingred');
+          myingredcase.appendChild(myburgingred);
+
+          burger['ingredients'].forEach(function(ingredient) {
+            var ingredientitem = document.createElement("li");
+            ingredientitem.appendChild(document.createTextNode(ingredient['name']));
+            myburgingred.appendChild(ingredientitem);
+          });
+
+      myburgcase.addEventListener('click', function(e) {
+        if(myingredcase.style.display == 'block')
+          myingredcase.style.display = 'none';
+        else
+          myingredcase.style.display = 'block';
+      });
+
+      myburgAdd.addEventListener('click', function(e) {
+            var orderitem = {};
+            orderitem['id'] = null;
+            orderitem['name'] = burger['name'];
+            orderitem['price'] = totalPrice;
+            orderitem['ingredients'] = ingredientslist;
+            orderlist.push(orderitem);
+            updateDocket();
+            document.getElementById('id07').style.display = 'none'
+      });
+
+      // burgeritem.innerHTML = "<div class=\"itemcontainer animate\"><div class=\"burgerItem\"><img class=\"ingredient\" src=\"images/ingredients/burger/" + burger['id'] + ".png\" alt=\"\" width=\"80%\"></div><h3>" + burger['name'] + "</h3><h3>$" + totalPrice + "</h3></div>";
+
+
+      // burgeritem.addEventListener('click', function() {
+      //   console.log("burgerclick");
+      //   document.getElementById('id04').style.display='block';
+      //   $(".ordertitle").text(burger['name']);
+      //   document.getElementById('setburgimg').src = 'images/ingredients/burger/' + burger['id'] + '.png';
+      //   $("#presetIngredients").empty();
+      //
+      //   var ingredientslist = [];
+      //
+      //   burger['ingredients'].forEach(function(ingredient) {
+      //     var ingredientitem = document.createElement("li");
+      //     ingredientitem.innerHTML = ingredient['name'];
+      //     document.getElementById('presetIngredients').appendChild(ingredientitem);
+      //
+      //     var ingrdobject = {};
+      //     ingrdobject['id'] = ingredient['id'];
+      //     ingrdobject['name'] = ingredient['name'];
+      //     ingrdobject['price'] = ingredient['cost'];
+      //     ingredientslist.push(ingrdobject);
+      //   });
+      //
+      //   $("#presetButton").empty();
+      //   var addButton = document.createElement("button");
+      //   addButton.setAttribute('id', 'myburgbtn');
+      //   addButton.setAttribute('type', 'submit');
+      //   addButton.appendChild(document.createTextNode('Add'));
+      //   document.getElementById('presetButton').appendChild(addButton);
+      //
+      //   addButton.addEventListener('click', function() {
+      //       console.log("preset add");
+      //
+      //       var orderitem = {};
+      //       orderitem['id'] = null;
+      //       orderitem['name'] = burger['name'];
+      //       orderitem['price'] = totalPrice;
+      //       orderitem['ingredients'] = ingredientslist;
+      //       orderlist.push(orderitem);
+      //       updateDocket();
+      //       document.getElementById('id04').style.display = 'none'
+      //   });
+      //
+      // });
+
+
+      document.getElementById('myburgerslist').appendChild(myburgcase);
+    });
+  });
+}
+
+function logout() {
   $("#pastOrders").hide();
   $("#myBurgers").hide();
   $("#log_sign").text("Login");
-  var logged_in = false;
-  var currentUser = null;
+   currentUser = null;
+     logged_in = false;
+
+   $.removeCookie('user_id');
+   $.removeCookie('user_name');
 }
 
   $("#log_sign").click(function (e) {
     if(!logged_in) {
     document.getElementById('id01').style.display='block';
   } else {
-      logged_in = false;
-      $("#pastOrders").hide();
-      $("#myBurgers").hide();
-      $("#log_sign").text("Login");
-       currentUser = null;
-
-       $.removeCookie('user_id');
-       $.removeCookie('user_name');
+      logout();
   }
   });
-
-
-
-
 
   openMenu(null, 'Burgers');
   document.getElementById('default').className += ' active';
@@ -367,17 +578,10 @@ logged_in = true;
 
     var name = document.getElementById("logUname").value;
     var password = document.getElementById("logPsw").value;
-    $.getJSON("//10.140.124.121/iceberger_backend/login.php?callback=?", "email=" + name + "&password=" + password, function(data) {
+    $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=login&email=" + name + "&password=" + password, function(data) {
       console.log(data);
       if (data['success']) {
-        $("#id01").hide();
-        $("#pastOrders").show();
-        $("#myBurgers").show();
-        $("#log_sign").text("Logout - " + data['name']);
-        logged_in = true;
-         currentUser = data['user'];
-         $.cookie('user_id', data['user']);
-         $.cookie('user_name', data['name']);
+        login(data['user'], data['name']);
       }
     });
 
@@ -390,10 +594,10 @@ logged_in = true;
     var name = document.getElementById("signUname").value;
     var password = document.getElementById("signPsw").value;
     var email = document.getElementById("signEmail").value;
-    $.getJSON("//10.140.124.121/iceberger_backend/register.php?callback=?", "name=" + name + "&password=" + password + "&email=" + email, function(data) {
+    $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=register&name=" + name + "&password=" + password + "&email=" + email, function(data) {
       console.log(data);
       if (data['success']) {
-        $("#id01").hide();
+        login(data['user'], data['name']);
       }
     });
 

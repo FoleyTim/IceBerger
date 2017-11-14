@@ -72,7 +72,7 @@ button:focus {
 ----------------------------------------------------**/
 
 header#unlogged {
-/* For browsers that do not support gradients */
+  /* For browsers that do not support gradients */
   background: #65BBC6;
   /* For Safari 5.1 to 6.0 */
   background: -webkit-linear-gradient(left, #65BBC6, #147871);
@@ -171,6 +171,13 @@ section.main {
   height: calc(100vh - 107px);
 }
 
+.docket h3 {
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-family: 'Galada', cursive;
+  font-size: 30px;
+}
+
 button#checkout_btn {
   background-color: #D67DB3;
   color: white;
@@ -186,16 +193,18 @@ button#checkout_btn {
 #docketitems {
   padding-top: 20px;
   border-top: #6A2D00 2px dashed;
-  height: calc(100vh - 261px);
+  height: calc(100vh - 246px);
   overflow-y: auto;
   overflow-x: hidden;
   border-bottom: #6A2D00 2px dashed;
 }
 
 #total {
+  padding-top: 27px;
   border: none;
   float: left;
   width: 49%;
+  font-size: 20px;
 }
 
 /*--------------------------------------------------
@@ -283,30 +292,26 @@ div.tab button.active {
 
 .itemcontainer h3 {
   background: #FFD66C;
+  /*color: #FFD66C;*/
   text-align: center;
   margin: 0;
+  /*font-family: 'Galada', cursive;*/
 }
-
-
-
-
 
 /*Scroll Bar*/
 
-
-::-webkit-scrollbar
-{
-  width: 12px;  /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  /* for vertical scrollbars */
+  height: 12px;
+  /* for horizontal scrollbars */
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.3);
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #FFD66C;
 }
 
@@ -321,6 +326,7 @@ div.tab button.active {
 .pastordercontainer {
   /*height: calc(100vh - 78px);*/
 }
+
 .pastorderscroll {
   height: calc(100vh - 278px);
   overflow-y: auto;
@@ -342,6 +348,7 @@ div.tab button.active {
 }
 
 /*Modal*/
+
 /* The Modal (background) */
 
 .pastmodal {
@@ -403,7 +410,6 @@ button#order {
   text-align: center;
 }
 
-
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
@@ -427,11 +433,6 @@ button#order {
 .myburgercontainer {
   /*height: calc(100vh - 78px);*/
 }
-.myburgerscroll {
-  height: calc(100vh - 278px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 
 .itemcontainer:hover {
   opacity: 1;
@@ -442,6 +443,7 @@ button#order {
 }
 
 /*Modal*/
+
 /* The Modal (background) */
 
 .myburgermodal {
@@ -503,9 +505,66 @@ button#myburgbtn {
   text-align: center;
 }
 
+.myburgerItem {
+  width: 70%;
+  margin: auto;
+}
 
+.date {
+  float: left;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
+.name {
+ text-align: center;
+}
 
+.price {
+  float: right;
+  margin: 0;
+  padding-right: 50px;
+}
+
+.myburgAdd {
+  margin-top: -4px;
+  margin-right: -90px;
+  padding: 10px 20px;
+  float: right;
+  background-color: #D67DB3;
+  color: #F9F9E0;
+  width: 13%;
+}
+
+.myburgerscroll {
+  height: calc(100vh - 278px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.myburgcase {
+  background: #F9F9E0;
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(#F9F9E0, #FAF8CF);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(#F9F9E0, #FAF8CF);
+  /* For Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(#F9F9E0, #FAF8CF);
+  /* Standard syntax */
+  background: linear-gradient(#F9F9E0, #FAF8CF);
+  border-bottom: #FAF3C0 4px solid;
+  min-height: 44px;
+}
+
+.myingredcase {
+  background: #6A2D00;
+  padding: 20px 0 20px 0;
+}
+
+.myburgingred {
+  text-align: center;
+  color: #FFD66C;
+}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -533,7 +592,6 @@ button#myburgbtn {
 .create button {
   color: #F9F9E0;
   font-size: 20px;
-
 }
 
 .whitechoc {
@@ -608,7 +666,6 @@ div.createtab button.active {
   border-radius: 50%;
   margin: 0 auto;
   margin-bottom: 10px;
-
 }
 
 .ingredient {
@@ -641,7 +698,6 @@ div.createtab button.active {
   height: calc(100vh - 297px);
 }
 
-
 #createdocketitems {
   height: calc(100vh - 370px);
   overflow-y: auto;
@@ -653,8 +709,6 @@ div.createtab button.active {
   float: left;
   width: 39%;
 }
-
-
 
 /* Center the image and position the close button */
 
@@ -780,8 +834,10 @@ button#pay_btn {
   margin: 20px;
   border: none;
   cursor: pointer;
-  width: ;
-  display: inline-block;
+  float: left;
+}
+
+#rcpt {
   text-align: center;
 }
 
@@ -818,8 +874,7 @@ div.checktab button {
 
 /* Change background color of buttons on hover */
 
-div.checktab button:hover {
-}
+div.checktab button:hover {}
 
 /* Create an active/current tablink class */
 
@@ -836,20 +891,30 @@ div.checktab button.active {
 }
 
 .reciept h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   color: #6A2D00;
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Galada', cursive;
 }
 
 .current_order {
   width: 70%;
   margin: auto;
-  border-top: #6A2D00 3px dashed;
+  border-top: #6A2D00 2px dashed;
   padding: 20px;
   text-align: center;
 }
 
+.checktotal {
+  margin: auto;
+  width: 50%;
+}
+
+.checktotal h3 {
+  padding-top: 22px;
+}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -896,8 +961,7 @@ div.paytab button {
 
 /* Change background color of buttons on hover */
 
-div.paytab button:hover {
-}
+div.paytab button:hover {}
 
 /* Create an active/current tablink class */
 
@@ -923,59 +987,70 @@ div.paytab button.active {
 .current_payment {
   width: 70%;
   margin: auto;
-  border-top: #6A2D00 3px dashed;
+  border-top: #6A2D00 2px dashed;
+  border-bottom: #6A2D00 2px dashed;
   padding: 20px;
   text-align: center;
+  height: calc(100vh - 420px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .pay_content {
-  height: calc(100vh - 137px);
+  height: calc(100vh - 237px);
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .creditCardForm {
-    max-width: 700px;
-    background-color: #fff;
-    margin: 5px auto;
-    overflow: hidden;
-    padding: 25px;
-    padding-bottom: 15px;
-    padding-top: 10px;
-    color: #4c4e56;
+  max-width: 700px;
+  background-color: #fff;
+  margin: 5px auto;
+  overflow: hidden;
+  padding: 25px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  color: #4c4e56;
 }
+
 .creditCardForm label {
-    width: 100%;
-    margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .creditCardForm .payment {
-    float: left;
-    font-size: 18px;
-    padding: 10px 25px;
-    margin-top: 0;
-    position: relative;
+  float: left;
+  font-size: 18px;
+  padding: 10px 25px;
+  margin-top: 0;
+  position: relative;
 }
+
 .creditCardForm .payment .form-group {
-    float: left;
+  float: left;
 }
+
 .creditCardForm .payment .form-control {
-    line-height: 40px;
-    height: auto;
-    padding: 0 16px;
+  line-height: 40px;
+  height: auto;
+  padding: 0 16px;
 }
+
 .creditCardForm .owner {
-    width: 63%;
-    margin-right: 10px;
+  width: 63%;
+  margin-right: 10px;
 }
+
 .creditCardForm .CVV {
-    width: 35%;
+  width: 35%;
 }
+
 .creditCardForm #card-number-field {
-    width: 100%;
+  width: 100%;
 }
+
 .creditCardForm #expiration-date {
-    width: 54%;
+  width: 54%;
 }
 
 .expdate_label {
@@ -983,40 +1058,41 @@ div.paytab button.active {
 }
 
 .creditCardForm #credit_cards {
-    width: 46%;
-    text-align: right;
-}
-.creditCardForm #pay-now {
-    width: 100%;
-    margin-top: 25px;
-}
-.creditCardForm .payment .btn {
-    width: 100%;
-    margin-top: -10px;
-    font-size: 24px;
-    background-color: #2ec4a5;
-    color: white;
-    height: 50px;
-}
-.creditCardForm .payment select {
-    padding: 10px;
-    margin-right: 15px;
-}
-.transparent {
-    opacity: 0.2;
-}
-@media(max-width: 650px) {
-    .creditCardForm .owner,
-    .creditCardForm .CVV,
-    .creditCardForm #expiration-date,
-    .creditCardForm #credit_cards {
-        width: 100%;
-    }
-    .creditCardForm #credit_cards {
-        text-align: left;
-    }
+  width: 46%;
+  text-align: right;
 }
 
+.creditCardForm #pay-now {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.creditCardForm .payment .btn {
+  width: 100%;
+  margin-top: -10px;
+  font-size: 24px;
+  background-color: #2ec4a5;
+  color: white;
+  height: 50px;
+}
+
+.creditCardForm .payment select {
+  padding: 10px;
+  margin-right: 15px;
+}
+
+.transparent {
+  opacity: 0.2;
+}
+
+@media(max-width: 650px) {
+  .creditCardForm .owner, .creditCardForm .CVV, .creditCardForm #expiration-date, .creditCardForm #credit_cards {
+    width: 100%;
+  }
+  .creditCardForm #credit_cards {
+    text-align: left;
+  }
+}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -1030,12 +1106,14 @@ div.paytab button.active {
   display: none;
 }
 
-
-
 .progress h4 {
   margin: auto;
 }
 
+#success p {
+  text-align: center;
+  padding-top: 40px;
+}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -1086,7 +1164,7 @@ button:hover {
 /* Center the image and position the close button */
 
 .imgcontainer {
-/* For browsers that do not support gradients */
+  /* For browsers that do not support gradients */
   background: #65BBC6;
   /* For Safari 5.1 to 6.0 */
   background: -webkit-linear-gradient(right, #147871, #65BBC6);
@@ -1155,10 +1233,8 @@ span.psw {
 .modal-content {
   background-color: #F9F9E0;
   color: #6A2D00;
-  margin: -30px auto 0 auto;
-  /* 5% from the top, 15% from the bottom and centered */
+  margin: -50px auto 0 auto;
   width: 80%;
-  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
