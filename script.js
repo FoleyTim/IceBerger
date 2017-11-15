@@ -406,161 +406,225 @@ $(document).ready(function() {
     });
   });
 
-if($.cookie('user_id') && $.cookie('user_name')) {
-  login($.cookie('user_id'), $.cookie('user_name'));
-} else {
-  logout();
-}
+  if($.cookie('user_id') && $.cookie('user_name')) {
+    login($.cookie('user_id'), $.cookie('user_name'));
+  } else {
+    logout();
+  }
 
-function login(id, name) {
-  $("#id01").hide();
-  $("#pastOrders").show();
-  $("#myBurgers").show();
-  $("#log_sign").text("Logout - " + name);
-  logged_in = true;
-  currentUser = id;
-  $.cookie('user_id', id);
-  $.cookie('user_name', name);
+  function login(id, name) {
+    $("#id01").hide();
+    $("#pastOrders").show();
+    $("#myBurgers").show();
+    $("#log_sign").text("Logout - " + name);
+    logged_in = true;
+    currentUser = id;
+    $.cookie('user_id', id);
+    $.cookie('user_name', name);
 
-  /*Populates myburgers from the database*/
-  $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getuserburgers&user=" + id, function(data) {
-    $('#myburgerslist').empty();
-    data['burgers'].forEach(function(burger) {
+    /*Populates Past Orders from the database*/
+    $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getuserorders&user=" + id, function(data) {
+      $('#pastorderslist').empty();
+      data['orders'].forEach(function(order) {
+        console.log('order');
+        var totalPrice = 0;
+        var orderitems = [];
+        order['sides'].forEach(function(ingredient) {
+          totalPrice += parseInt(ingredient['cost']);
 
-      var totalPrice = 0;
-      var ingredientslist = [];
-      burger['ingredients'].forEach(function(ingredient) {
-        totalPrice += parseInt(ingredient['cost']);
+          var ingrdobject = {};
+          ingrdobject['id'] = ingredient['id'];
+          ingrdobject['name'] = ingredient['name'];
+          ingrdobject['price'] = ingredient['cost'];
+          orderitems.push(ingrdobject);
+        });
 
-        var ingrdobject = {};
-        ingrdobject['id'] = ingredient['id'];
-        ingrdobject['name'] = ingredient['name'];
-        ingrdobject['price'] = ingredient['cost'];
-        ingredientslist.push(ingrdobject);
-      });
-
-      var myburgcase = document.createElement("div");
-      myburgcase.setAttribute('class', 'myburgcase');
-
-        var myburgerItem = document.createElement("div");
-        myburgerItem.setAttribute('class', 'myburgerItem');
-        myburgcase.appendChild(myburgerItem);
-
-          var myburgAdd = document.createElement("button");
-          myburgAdd.setAttribute('class', 'myburgAdd');
-          myburgAdd.appendChild(document.createTextNode('Add'));
-          myburgerItem.appendChild(myburgAdd);
-
-          var price = document.createElement("h3");
-          price.setAttribute('class', 'price');
-          price.appendChild(document.createTextNode(totalPrice));
-          myburgerItem.appendChild(price);
-
-          var date = document.createElement("h3");
-          date.setAttribute('class', 'date');
-          date.appendChild(document.createTextNode(burger['name']));
-          myburgerItem.appendChild(date);
-
-          var name = document.createElement("h3");
-          name.setAttribute('class', 'name');
-          name.appendChild(document.createTextNode(burger['name']));
-          myburgerItem.appendChild(name);
-
-        var myingredcase = document.createElement("div");
-        myingredcase.setAttribute('class', 'myingredcase');
-        myingredcase.style.display = 'none';
-        myburgcase.appendChild(myingredcase);
-
-          var myburgingred = document.createElement("ul");
-          myburgingred.setAttribute('class', 'myburgingred');
-          myingredcase.appendChild(myburgingred);
-
+        order['burgers'].forEach(function(burger) {
+          var burgerobject = {};
+          burgerobject['id'] = null;
+          burgerobject['name'] = burger['name'];
+          burgerobject['ingredients'] = [];
+          var burgerprice = 0;
           burger['ingredients'].forEach(function(ingredient) {
-            var ingredientitem = document.createElement("li");
-            ingredientitem.appendChild(document.createTextNode(ingredient['name']));
-            myburgingred.appendChild(ingredientitem);
+            totalPrice += parseInt(ingredient['cost']);
+            burgerprice += parseInt(ingredient['cost']);
+
+            var ingrdobject = {};
+            ingrdobject['id'] = ingredient['id'];
+            ingrdobject['name'] = ingredient['name'];
+            ingrdobject['price'] = ingredient['cost'];
+            burgerobject['ingredients'].push(ingrdobject);
           });
+          burgerobject['price'] = burgerprice;
+          orderitems.push(burgerobject);
+        });
 
-      myburgcase.addEventListener('click', function(e) {
-        if(myingredcase.style.display == 'block')
+        var myburgcase = document.createElement("div");
+        myburgcase.setAttribute('class', 'myburgcase');
+
+          var myburgerItem = document.createElement("div");
+          myburgerItem.setAttribute('class', 'myburgerItem');
+          myburgcase.appendChild(myburgerItem);
+
+            var myburgAdd = document.createElement("button");
+            myburgAdd.setAttribute('class', 'myburgAdd');
+            myburgAdd.appendChild(document.createTextNode('Add'));
+            myburgerItem.appendChild(myburgAdd);
+
+            var price = document.createElement("h3");
+            price.setAttribute('class', 'price');
+            price.appendChild(document.createTextNode('$' + totalPrice));
+            myburgerItem.appendChild(price);
+
+            var date = document.createElement("h3");
+            date.setAttribute('class', 'date');
+            date.appendChild(document.createTextNode(order['id']));
+
+            myburgerItem.appendChild(date);
+
+            var name = document.createElement("h3");
+            name.setAttribute('class', 'name');
+            var newDate = order['date'];
+            var year = newDate.substring(0, 4);
+            var month = newDate.substring(5, 7);
+            var day = newDate.substring(8, 10);
+            name.appendChild(document.createTextNode(day + ' - ' + month + ' - ' + year));
+            myburgerItem.appendChild(name);
+
+          var myingredcase = document.createElement("div");
+          myingredcase.setAttribute('class', 'myingredcase');
           myingredcase.style.display = 'none';
-        else
-          myingredcase.style.display = 'block';
+          myburgcase.appendChild(myingredcase);
+
+            var myburgingred = document.createElement("ul");
+            myburgingred.setAttribute('class', 'myburgingred');
+            myingredcase.appendChild(myburgingred);
+
+            order['burgers'].forEach(function(burger) {
+              var burgeritem = document.createElement("li");
+              burgeritem.appendChild(document.createTextNode(burger['name']));
+              myburgingred.appendChild(burgeritem);
+            });
+
+            order['sides'].forEach(function(side) {
+              var sideitem = document.createElement("li");
+              sideitem.appendChild(document.createTextNode(side['name']));
+              myburgingred.appendChild(sideitem);
+            });
+
+        myburgcase.addEventListener('click', function(e) {
+          if(myingredcase.style.display == 'block')
+            myingredcase.style.display = 'none';
+          else
+            myingredcase.style.display = 'block';
+        });
+
+        myburgAdd.addEventListener('click', function(e) {
+              orderlist = orderlist.concat(orderitems);
+              updateDocket();
+              document.getElementById('id08').style.display = 'none'
+        });
+
+        document.getElementById('pastorderslist').appendChild(myburgcase);
       });
-
-      myburgAdd.addEventListener('click', function(e) {
-            var orderitem = {};
-            orderitem['id'] = null;
-            orderitem['name'] = burger['name'];
-            orderitem['price'] = totalPrice;
-            orderitem['ingredients'] = ingredientslist;
-            orderlist.push(orderitem);
-            updateDocket();
-            document.getElementById('id07').style.display = 'none'
-      });
-
-      // burgeritem.innerHTML = "<div class=\"itemcontainer animate\"><div class=\"burgerItem\"><img class=\"ingredient\" src=\"images/ingredients/burger/" + burger['id'] + ".png\" alt=\"\" width=\"80%\"></div><h3>" + burger['name'] + "</h3><h3>$" + totalPrice + "</h3></div>";
-
-
-      // burgeritem.addEventListener('click', function() {
-      //   console.log("burgerclick");
-      //   document.getElementById('id04').style.display='block';
-      //   $(".ordertitle").text(burger['name']);
-      //   document.getElementById('setburgimg').src = 'images/ingredients/burger/' + burger['id'] + '.png';
-      //   $("#presetIngredients").empty();
-      //
-      //   var ingredientslist = [];
-      //
-      //   burger['ingredients'].forEach(function(ingredient) {
-      //     var ingredientitem = document.createElement("li");
-      //     ingredientitem.innerHTML = ingredient['name'];
-      //     document.getElementById('presetIngredients').appendChild(ingredientitem);
-      //
-      //     var ingrdobject = {};
-      //     ingrdobject['id'] = ingredient['id'];
-      //     ingrdobject['name'] = ingredient['name'];
-      //     ingrdobject['price'] = ingredient['cost'];
-      //     ingredientslist.push(ingrdobject);
-      //   });
-      //
-      //   $("#presetButton").empty();
-      //   var addButton = document.createElement("button");
-      //   addButton.setAttribute('id', 'myburgbtn');
-      //   addButton.setAttribute('type', 'submit');
-      //   addButton.appendChild(document.createTextNode('Add'));
-      //   document.getElementById('presetButton').appendChild(addButton);
-      //
-      //   addButton.addEventListener('click', function() {
-      //       console.log("preset add");
-      //
-      //       var orderitem = {};
-      //       orderitem['id'] = null;
-      //       orderitem['name'] = burger['name'];
-      //       orderitem['price'] = totalPrice;
-      //       orderitem['ingredients'] = ingredientslist;
-      //       orderlist.push(orderitem);
-      //       updateDocket();
-      //       document.getElementById('id04').style.display = 'none'
-      //   });
-      //
-      // });
-
-
-      document.getElementById('myburgerslist').appendChild(myburgcase);
     });
-  });
-}
 
-function logout() {
-  $("#pastOrders").hide();
-  $("#myBurgers").hide();
-  $("#log_sign").text("Login");
-   currentUser = null;
-     logged_in = false;
+    /*Populates myburgers from the database*/
+    $.getJSON("https://iceberger.ey.nz/api.php?callback=?", "method=getuserburgers&user=" + id, function(data) {
+      $('#myburgerslist').empty();
+      data['burgers'].forEach(function(burger) {
 
-   $.removeCookie('user_id');
-   $.removeCookie('user_name');
-}
+        var totalPrice = 0;
+        var ingredientslist = [];
+        burger['ingredients'].forEach(function(ingredient) {
+          totalPrice += parseInt(ingredient['cost']);
+
+          var ingrdobject = {};
+          ingrdobject['id'] = ingredient['id'];
+          ingrdobject['name'] = ingredient['name'];
+          ingrdobject['price'] = ingredient['cost'];
+          ingredientslist.push(ingrdobject);
+        });
+
+        var myburgcase = document.createElement("div");
+        myburgcase.setAttribute('class', 'myburgcase');
+
+          var myburgerItem = document.createElement("div");
+          myburgerItem.setAttribute('class', 'myburgerItem');
+          myburgcase.appendChild(myburgerItem);
+
+            var myburgAdd = document.createElement("button");
+            myburgAdd.setAttribute('class', 'myburgAdd');
+            myburgAdd.appendChild(document.createTextNode('Add'));
+            myburgerItem.appendChild(myburgAdd);
+
+            var price = document.createElement("h3");
+            price.setAttribute('class', 'price');
+            price.appendChild(document.createTextNode(totalPrice));
+            myburgerItem.appendChild(price);
+
+            var date = document.createElement("h3");
+            date.setAttribute('class', 'date');
+            date.appendChild(document.createTextNode(burger['name']));
+            myburgerItem.appendChild(date);
+
+            var name = document.createElement("h3");
+            name.setAttribute('class', 'name');
+            var newDate = burger['date'];
+            var year = newDate.substring(0, 4);
+            var month = newDate.substring(5, 7);
+            var day = newDate.substring(8, 10);
+            name.appendChild(document.createTextNode(day + ' - ' + month + ' - ' + year));
+            myburgerItem.appendChild(name);
+
+          var myingredcase = document.createElement("div");
+          myingredcase.setAttribute('class', 'myingredcase');
+          myingredcase.style.display = 'none';
+          myburgcase.appendChild(myingredcase);
+
+            var myburgingred = document.createElement("ul");
+            myburgingred.setAttribute('class', 'myburgingred');
+            myingredcase.appendChild(myburgingred);
+
+            burger['ingredients'].forEach(function(ingredient) {
+              var ingredientitem = document.createElement("li");
+              ingredientitem.appendChild(document.createTextNode(ingredient['name']));
+              myburgingred.appendChild(ingredientitem);
+            });
+
+        myburgcase.addEventListener('click', function(e) {
+          if(myingredcase.style.display == 'block')
+            myingredcase.style.display = 'none';
+          else
+            myingredcase.style.display = 'block';
+        });
+
+        myburgAdd.addEventListener('click', function(e) {
+              var orderitem = {};
+              orderitem['id'] = null;
+              orderitem['name'] = burger['name'];
+              orderitem['price'] = totalPrice;
+              orderitem['ingredients'] = ingredientslist;
+              orderlist.push(orderitem);
+              updateDocket();
+              document.getElementById('id07').style.display = 'none'
+        });
+
+        document.getElementById('myburgerslist').appendChild(myburgcase);
+      });
+    });
+  }
+
+  function logout() {
+    $("#pastOrders").hide();
+    $("#myBurgers").hide();
+    $("#log_sign").text("Login");
+     currentUser = null;
+       logged_in = false;
+
+     $.removeCookie('user_id');
+     $.removeCookie('user_name');
+  }
 
   $("#log_sign").click(function (e) {
     if(!logged_in) {

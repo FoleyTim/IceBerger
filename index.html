@@ -52,76 +52,6 @@
 
         <div class="myburgerscroll" id="myburgerslist">
 
-
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-            <div class="myingredcase">
-              <ul class="myburgingred">
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-              </ul>
-            </div>
-          </div>
-
-
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-          </div>
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-          </div>
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-          </div>
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-          </div>
-
-          <div class="myburgcase">
-            <div class="myburgerItem">
-              <button class="myburgAdd">Add</button>
-              <h3 class="price">$$.$$</h3>
-              <h3 class="date">Date</h3>
-              <h3 class="name">Name</h3>
-            </div>
-          </div>
-
-
-
-
         </div>
       </div>
     </div>
@@ -142,7 +72,12 @@
           Past Orders
         </div>
 
-        <div class="pastorderscroll">
+        <div class="pastorderscroll" id="pastorderslist">
+
+
+
+
+
 
 
         </div>
@@ -215,7 +150,7 @@
           </ul>
           <h3 id="createtotal">$0.00</h3>
 
-          <button id="checkout_btn" onclick="addCreateBurger()" type="submit">Add</button>
+          <button id="createadd_btn" onclick="addCreateBurger()" type="submit">Add</button>
 
         </div>
       </div>
@@ -387,7 +322,7 @@
                   <img src="images/amex.jpg" id="amex" width="17%">
                 </div>
                 <div class="form-group" id="pay-now">
-                  <button type="submit" class="btn btn-default" id="confirm-purchase" onclick="confirm(); checkout()">Confirm</button>
+                  <button type="submit" class="btn btn-default" id="confirm-purchase" onclick="confirm(); checkout();">Confirm</button>
                 </div>
               </div>
             </div>

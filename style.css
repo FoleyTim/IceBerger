@@ -651,10 +651,19 @@ div.createtab button.active {
 .createBurgercontent {
   display: none;
   padding: 6px 12px;
-  border-top: none;
+  border-top: #FAF3C0;
   width: 70%;
   height: 320px;
   overflow-y: auto;
+  background: #FAF8CF;
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(#FAF8CF, #F9F9E0);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(#FAF8CF, #F9F9E0);
+  /* For Firefox 3.6 to 15 */
+  background: -moz-linear-gradient(#FAF8CF, #F9F9E0);
+  /* Standard syntax */
+  background: linear-gradient(#FAF8CF, #F9F9E0);
 }
 
 .createItem {
@@ -692,6 +701,7 @@ div.createtab button.active {
 .createdocket {
   padding: 15px;
   padding-top: 0;
+  padding-right: 30px;
   background: #F9F9E0;
   color: #6A2D00;
   text-align: center;
@@ -702,12 +712,29 @@ div.createtab button.active {
   height: calc(100vh - 370px);
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 20px;
+  border-top: #6A2D00 2px dashed;
+  border-bottom: #6A2D00 2px dashed;
 }
 
 #createtotal {
+  margin-top: 20px;
   border: none;
   float: left;
   width: 39%;
+  font-family: 'Galada', cursive;
+}
+
+#createadd_btn {
+  background-color: #D67DB3;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 40%;
+  display: inline-block;
+  text-align: center;
 }
 
 /* Center the image and position the close button */
