@@ -1,47 +1,32 @@
-/** { border: 1px solid black; }*/
-
-/*--------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-                  Global
-----------------------------------------------------
-----------------------------------------------------
-----------------------------------------------------**/
-
+/* Global */
 body, html {
-  height: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body {
-  font: 15px/1.5 Arial, Helvetica, sans-serif;
-  /* For browsers that do not support gradients */
-  background: #9A4198;
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(#9A4198, #D67DB3);
-  /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(#9A4198, #D67DB3);
-  /* For Firefox 3.6 to 15 */
-  background: -moz-linear-gradient(#9A4198, #D67DB3);
-  /* Standard syntax */
-  background: linear-gradient(#9A4198, #D67DB3);
-  margin: 0;
-  min-height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  overflow-x: hidden;
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    background: #9A4198;
+    background: -webkit-linear-gradient(#9A4198, #D67DB3);
+    background: -o-linear-gradient(#9A4198, #D67DB3);
+    background: -moz-linear-gradient(#9A4198, #D67DB3);
+    background: linear-gradient(#9A4198, #D67DB3);
+    margin: 0;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
 }
 
-#logo_btn {
-  margin-left: -6px;
-  opacity: 1;
-  margin-top: -1px;
-}
-
-.container {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
+* {
+    cursor: default;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 ul {
@@ -63,77 +48,1028 @@ button:focus {
   outline: none;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD66C;
+}
+
+/* Header */
+#header {
+  background: #65BBC6;
+  background: -webkit-linear-gradient(left, #65BBC6, #147871);
+  background: -o-linear-gradient(right, #65BBC6, #147871);
+  background: -moz-linear-gradient(right, #65BBC6, #147871);
+  background: linear-gradient(to right, #65BBC6, #147871);
+  color: #ffffff;
+  height: 70px;
+  border-bottom: #FFD66C 6px solid;
+}
+
+#header #branding {
+  float: left;
+  padding: 10px;
+}
+#header #branding img {
+    height: 50px;
+}
+
+#header #navigation {
+    float: right;
+    height: 50px;
+    padding: 10px;
+}
+
+#header li {
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+#header li:hover {
+    background: #fed66b;
+    color: #4F2200;
+}
+
+/* Main */
+#main {
+    width: 100vw;
+    height: calc(100vh - 70px);
+}
+
+/* Docket */
+#docket {
+  float: right;
+  width: 350px;
+  height: inherit;
+  background: #F9F9E0;
+  color: #6A2D00;
+}
+#docket #clear_button {
+  background: transparent;
+  color: #6A2D00;
+      margin: 30px 25px 15px 0;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  float: right;
+      display: none;
+  text-align: center;
+  transition: 0.3s;
+}
+#docket #clear_button:hover {
+  background: #D67D73;
+  color: white;
+}
+#docket #dockettitle {
+    margin: 30px 0 15px 25px;
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+#docket #docketfooter {
+    margin: 25px 25px;
+    height: 50px;
+}
+
+#docket #docketfooter #checkout_btn {
+  background-color: #D67DB3;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+  display: block;
+  text-align: center;
+  transition: 0.3s;
+}
+#docket #docketfooter #checkout_btn:hover {
+    background: #fed66b;
+    color: #6A2D00;
+}
+
+#docket #docketfooter #dockettotal {
+    font-family: 'Galada', cursive;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    clear: left;
+}
+#docket #docketfooter #docketprice {
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    clear: left;
+}
+#docket #docketfooter #docketprice::before {
+    content: '$';
+}
+#docket #docketitems {
+    margin: 0 25px;
+    padding: 20px 0;
+    border-top: #6A2D00 2px dashed;
+    height: calc(100vh - 295px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: #6A2D00 2px dashed;
+    list-style: none;
+}
+#docket #docketitems .docket_item {
+    display: block;
+    list-style: none;
+    height: 24px;
+    padding: 5px 0;
+}
+#docket #docketitems .docket_item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+#docket #docketitems .docket_item .docket_remove {
+    width: 24px;
+    height: 24px;
+    /*background: red;*/
+    cursor: pointer;
+    float: right;
+    background: transparent url('images/ic_remove.svg');
+}
+#docket #docketitems .docket_item .docket_price {
+    height: 24px;
+    float: right;
+    font-family: 'Galada', cursive;
+    font-size: 16px;
+    padding-right: 15px;
+}
+#docket #docketitems .docket_item .docket_price::before {
+    content: '$';
+}
+
+/* Order */
+#order {
+    height: inherit;
+    overflow: hidden;
+}
+
+#order #order_nav {
+  background: #6A2D00;
+  height: 60px;
+}
+
+#order #order_nav .order_tab {
+    float: left;
+    transition: 0.1s;
+    width: calc(100% / 3);
+    color: #FFD66C;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Galada', cursive;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+#order #order_nav .order_tab:hover,
+#order #order_nav .order_tab.active {
+  border-bottom: #FFD66C 3px solid;
+  height: 57px;
+  font-size: 32px;
+}
+
+#order #order_nav .order_tab.active {
+    cursor: default;
+}
+
+#order #content {
+    height: calc(100vh - 136px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#order #content #create_burger {
+    background: #fedc7c;
+    padding: 15px;
+    transition: 0.3s;
+    color: #4F2200;
+    min-height: 20px;
+}
+#order #content #create_burger .button {
+    background: #4F2200;
+    color: #fedc7c;
+    width: 500px;
+    font-size: 18px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+
+#order #content #create_burger .button:hover {
+    font-size: 21px;
+    font-weight: bold;
+    width: 600px;
+    height: 60px;
+    border-radius: 35px;
+    line-height: 60px;
+    margin: 5px auto;
+}
+
+#order #content #whitechoc {
+    background: transparent url('images/whitechoc.png') repeat-x;
+    height: 60px;
+}
+
+#order #content #items .tabcontent {
+    margin: 50px;
+    padding: 0;
+    display: none;
+    text-align: center;
+}
+
+.item_container {
+    display: inline-flex;
+    width: 240px;
+}
+.item_container * {
+
+    cursor: pointer;
+}
+
+.item_container .order_item {
+    width: 100%;
+    margin-bottom: 50px;
+}
+.item_container .item_image {
+      width: 180px;
+      height: 180px;
+      background: #9A4198;
+      border: #FFD66C 5px solid;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+}
+.item_container .item_image img {
+    display: block;
+    margin: 20px;
+    width: 140px;
+    width: 140px;
+    transition: 0.2s;
+    -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.05)));
+}
+.item_container:hover .item_image img {
+    width: 200px;
+    width: 200px;
+    margin: -10px;
+}
+
+.item_container .item_name {
+    text-align: center;
+    margin: 25px 0 0;
+    font-size: 30px;
+    line-height: 30px;
+    font-family: 'Galada', cursive;
+    color: #FFD66C;
+}
+.item_container .item_price {
+    text-align: center;
+    margin: 15px 0 0;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-family: 'Galada', cursive;
+    color: #FFD66C;
+}
+.item_container .item_price::before {
+    content: '$';
+}
+
+/* Modals General */
+
+.modal {
+    display: none;
+}
+.modal .modal-container {
+    z-index: 2;
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Internet Explorer */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+
+    pointer-events: none;
+}
+
+.modal .modal-background {
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal .modal-content {
+    pointer-events:all;
+  background-color: #F9F9E0;.modal
+  color: #6A2D00;
+    margin: 0 auto 0;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+    border-top: #FFD66C 6px solid;
+}
+
+.modal .modal-title {
+    width: auto;
+    background: #6A2D00;
+    height: 60px;
+}
+.modal .modal-title .close {
+    width: 24px;
+    height: 24px;
+    float: right;
+    background: transparent url('images/ic_close.svg');
+    margin: 18px;
+    cursor: pointer;
+}
+.modal .modal-title .title {
+    text-align: left;
+    margin: 4px 18px 0;
+    color: #FFD66C;
+    font-size: 30px;
+    font-family: 'Galada', cursive;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+
+}
+
+/* Login Modal */
+
+#id01 {
+
+}
+#id01 .modal-body {
+    width: 50vw;
+    /*height: 35vh;*/
+    min-width: 700px;
+}
+
+#id01 #loginform {
+    width: 50%;
+    float: left;
+}
+#id01 #signupform {
+    width: 50%;
+    float: right;
+}
+#id01 .modal-body .title {
+font-family: 'Galada', cursive;
+color: #6A2D00;
+font-size: 30px;
+margin: 25px;
+}
+#id01 .modal-body .formpart {
+    height: 35px;
+    margin: 10px 25px;
+}
+#id01 .modal-body label {
+    display: block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+}
+#id01 .modal-body input {
+    display: block;
+    margin: 0 25px;
+    padding: 0 10px;
+    cursor: text!important;
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+}
+#id01 .modal-body .button {
+    background-color: #D67DB3;
+    color: white;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+    transition: 0.3s;
+    margin: 25px;
+}
+#id01 .modal-body .button:hover {
+    background: #fed66b;
+    color: #6A2D00;
+}
+#id01 #login_submit {
+    margin-top: 66px;
+}
+
+/* Create Burger Modal */
+#id02 #create_docket {
+  float: right;
+  width: 350px;
+  height: inherit;
+  background: #F9F9E0;
+  color: #6A2D00;
+}
+#id02 #create_docket #create_clear_button {
+  background: transparent;
+  color: #6A2D00;
+      margin: 30px 25px 15px 0;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  float: right;
+      display: none;
+  text-align: center;
+  transition: 0.3s;
+}
+#id02 #create_docket #create_clear_button:hover {
+  background: #D67D73;
+  color: white;
+}
+#id02 #create_docket #create_dockettitle {
+    margin: 30px 0 15px 25px;
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    color: #6A2D00;
+    width: 240px;
+    /*float: left;*/
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: text;
+}
+#id02 #create_docket #create_docketfooter {
+    margin: 25px 25px;
+    height: 50px;
+}
+
+#id02 #create_docket #create_docketfooter #create_checkout_btn {
+  background-color: #D67DB3;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+  display: block;
+  text-align: center;
+  transition: 0.3s;
+}
+#id02 #create_docket #create_docketfooter #create_checkout_btn:hover {
+    background: #fed66b;
+    color: #6A2D00;
+}
+
+#id02 #create_docket #create_docketfooter #create_dockettotal {
+    font-family: 'Galada', cursive;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    clear: left;
+}
+#id02 #create_docket #create_docketfooter #create_docketprice {
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    clear: left;
+}
+#id02 #create_docket #create_docketfooter #create_docketprice::before {
+    content: '$';
+}
+#id02 #create_docket #create_docketitems {
+    margin: 0 25px;
+    padding: 20px 0;
+    border-top: #6A2D00 2px dashed;
+    height: calc(75vh - 247px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: #6A2D00 2px dashed;
+    list-style: none;
+}
+#id02 #create_docket #create_docketitems .create_docket_item {
+    display: block;
+    list-style: none;
+    height: 24px;
+    padding: 5px 0;
+}
+#id02 #create_docket #create_docketitems .create_docket_item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+#id02 #create_docket #create_docketitems .create_docket_item .create_docket_remove {
+    width: 24px;
+    height: 24px;
+    /*background: red;*/
+    cursor: pointer;
+    float: right;
+    background: transparent url('images/ic_remove.svg');
+}
+#id02 #create_docket #create_docketitems .create_docket_item .create_docket_price {
+    height: 24px;
+    float: right;
+    font-family: 'Galada', cursive;
+    font-size: 16px;
+    padding-right: 15px;
+}
+#id02 #create_docket #create_docketitems .create_docket_item .create_docket_price::before {
+    content: '$';
+}
+
+#id02 #create_body {
+    width: calc(75vw - 300px);
+    height: inherit;
+    overflow: hidden;
+}
+
+#id02 #create_body #create_nav {
+  height: 60px;
+}
+
+#id02 #create_body #create_nav .create_tab {
+    float: left;
+    transition: 0.1s;
+    width: calc(100% / 4);
+    color: #6A2D00;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Galada', cursive;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+#id02 #create_body #create_nav .create_tab:hover,
+#id02 #create_body #create_nav .create_tab.active {
+  border-bottom: #FFD66C 3px solid;
+  height: 57px;
+  font-size: 32px;
+}
+
+#id02 #create_body #create_nav .create_tab.active {
+    cursor: default;
+}
+
+#id02 #create_body #create_content {
+    height: 560px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(75vh - 126px);
+}
+
+#id02 #create_body #create_content .createBurgercontent {
+    display: none;
+    text-align: center;
+    padding: 25px 0;
+}
+
+#id02 .item_container {
+    display: inline-flex;
+    width: 160px;
+}
+
+#id02 .item_container .order_item {
+    width: 100%;
+    margin-bottom: 50px;
+}
+#id02 .item_container .item_image {
+      width: 120px;
+      height: 120px;
+      background: #9A4198;
+      border: #FFD66C 5px solid;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+}
+#id02 .item_container .item_image img {
+    display: block;
+    margin: 20px;
+    width: 80px;
+    width: 80px;
+    transition: 0.2s;
+    -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.05)));
+}
+#id02 .item_container:hover .item_image img {
+    width: 100px;
+    width: 100px;
+    margin: 10px;
+}
+
+#id02 .item_container .item_name {
+    text-align: center;
+    margin: 20px 0 0;
+    font-size: 25px;
+    line-height: 25px;
+    font-family: 'Galada', cursive;
+    color: #6A2D00;
+}
+#id02 .item_container .item_price {
+    text-align: center;
+    margin: 10px 0 0;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-family: 'Galada', cursive;
+    color: #6A2D00;
+}
+
+
+/* Checkout Modal */
+#id05 .modal-body {
+}
+
+#id05 #rcpt {
+    width: 750px;
+    height: 360px;
+}
+
+#id05 #rcpt #reciept_docket {
+  width: inherit;
+  background: #F9F9E0;
+  color: #6A2D00;
+}
+#id05 #rcpt #reciept_docket #reciept_docketfooter {
+    margin: 25px 25px;
+    height: 50px;
+}
+
+#id05 #rcpt #reciept_docket #reciept_docketfooter #reciept_payment_btn {
+  background-color: #D67DB3;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+  display: block;
+  text-align: center;
+  transition: 0.3s;
+}
+#id05 #rcpt #reciept_docket #reciept_docketfooter #reciept_payment_btn:hover {
+    background: #FFD66C!important;
+    color: #6A2D00!important;
+}
+
+#id05 #rcpt #reciept_docket #reciept_docketfooter #reciept_dockettotal {
+    font-family: 'Galada', cursive;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    clear: left;
+}
+#id05 #rcpt #reciept_docket #reciept_docketfooter #reciept_docketprice {
+    font-family: 'Galada', cursive;
+    font-size: 30px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    clear: left;
+}
+#id05 #rcpt #reciept_docket #reciept_docketfooter #reciept_docketprice::before {
+    content: '$';
+}
+#id05 #rcpt #reciept_docket #reciept_docketitems {
+    margin: 0 25px;
+    padding: 20px 0;
+    width: 700px;
+    height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: #6A2D00 2px dashed;
+    list-style: none;
+}
+#id05 #rcpt #reciept_docket #reciept_docketitems .reciept_docket_item {
+    display: block;
+    list-style: none;
+    height: 24px;
+    padding: 5px 0;
+}
+#id05 #rcpt #reciept_docket #reciept_docketitems .reciept_docket_item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+#id05 #rcpt #reciept_docket #reciept_docketitems .reciept_docket_item .reciept_docket_price {
+    height: 24px;
+    float: right;
+    font-family: 'Galada', cursive;
+    font-size: 16px;
+}
+#id05 #rcpt #reciept_docket #reciept_docketitems .reciept_docket_item .reciept_docket_price::before {
+    content: '$';
+}
+
+#id05 #paynow {
+    width: 750px;
+    height: 360px;
+    display: none;
+}
+
+#id05 #paynow input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+.current_payment {
+  width: 50%;
+  margin: auto;
+  border-top: #6A2D00 2px dashed;
+  border-bottom: #6A2D00 2px dashed;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.creditCardForm {
+  max-width: 700px;
+  background-color: #fff;
+  margin: 5px auto;
+  overflow: hidden;
+  padding: 25px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  color: #4c4e56;
+}
+
+.creditCardForm label {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.creditCardForm .payment {
+  float: left;
+  font-size: 18px;
+  padding: 10px 25px;
+  margin-top: 0;
+  position: relative;
+}
+
+.creditCardForm .payment .form-group {
+  float: left;
+}
+
+.creditCardForm .payment .form-control {
+  line-height: 40px;
+  height: auto;
+  padding: 0 16px;
+}
+
+.creditCardForm .owner {
+  width: 63%;
+  margin-right: 10px;
+}
+
+.creditCardForm .CVV {
+  width: 35%;
+}
+
+.creditCardForm #card-number-field {
+  width: 100%;
+}
+
+.creditCardForm #expiration-date {
+  width: 54%;
+}
+
+.expdate_label {
+  float: left;
+}
+
+.creditCardForm #credit_cards {
+  width: 46%;
+  text-align: right;
+}
+
+.creditCardForm #pay-now {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.creditCardForm .payment .btn {
+  width: 48%;
+  margin-top: -10px;
+  font-size: 24px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.creditCardForm .payment .btn:hover {
+    background: #FFD66C!important;
+    color: #6A2D00!important;
+}
+.creditCardForm .payment #confirm-purchase {
+    float: left;
+    background-color: #2ec4a5;
+    color: white;
+}
+.creditCardForm .payment #confirm-purchase-cash {
+    float: right!important;
+    background-color: #D67DB3;
+    color: white;
+}
+
+.creditCardForm .payment select {
+  padding: 10px;
+  margin-right: 15px;
+}
+
+.transparent {
+  opacity: 0.2;
+}
+
+@media(max-width: 650px) {
+  .creditCardForm .owner, .creditCardForm .CVV, .creditCardForm #expiration-date, .creditCardForm #credit_cards {
+    width: 100%;
+  }
+  .creditCardForm #credit_cards {
+    text-align: left;
+  }
+}
+
+#id07 .modal-body {
+}
+
+.myburgerscroll, .pastorderscroll {
+    height: 75vh;
+    width: 75vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.myburgerItem {
+  /*width: 70%;*/
+  margin: 0 25px;
+  /*margin: auto;*/
+  color: #6A2D00;
+}
+
+.myburgerItem .date {
+  float: right;
+  margin: 15px;
+  height: 30px;
+  line-height: 30px;
+  font-family: 'Galada', cursive;
+  font-size: 16px;
+}
+
+
+.myburgerItem .name {
+    float: left;
+    margin: 15px;
+    height: 30px;
+    line-height: 30px;
+    font-family: 'Galada', cursive;
+    font-size: 20px;
+}
+
+.myburgerItem .price {
+  float: right;
+  margin: 15px;
+  height: 30px;
+  width: 50px;
+  text-align: right;
+  line-height: 30px;
+  font-family: 'Galada', cursive;
+  font-size: 16px;
+}
+.myburgerItem .price::before {
+    content: '$';
+}
+
+.myburgAdd {
+  float: right;
+  background-color: #D67DB3;
+  color: #F9F9E0;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.myburgAdd:hover {
+    background: #fed66b;
+    color: #6A2D00;
+}
+
+.myburgcase {
+  background: #F9F9E0;
+  background: -webkit-linear-gradient(#F9F9E0, #FAF8CF);
+  background: -o-linear-gradient(#F9F9E0, #FAF8CF);
+  background: -moz-linear-gradient(#F9F9E0, #FAF8CF);
+  background: linear-gradient(#F9F9E0, #FAF8CF);
+  border-bottom: #FAF3C0 4px solid;
+  min-height: 60px;
+  transition: 0.3s;
+  /*cursor: pointer;*/
+}
+.myburgcase:hover {
+  background: #E9E9D0;
+  background: -webkit-linear-gradient(#E9E9D0, #EAE8BF);
+  background: -o-linear-gradient(#E9E9D0, #EAE8BF);
+  background: -moz-linear-gradient(#E9E9D0, #EAE8BF);
+  background: linear-gradient(#E9E9D0, #EAE8BF);
+  border-bottom: #EAE3B0 4px solid;
+  min-height: 60px;
+  transition: 0.3s;
+}
+
+.myingredcase {
+    clear: both;
+  /*background: #6A2D00;*/
+  padding: 0 0 20px 0;
+  transition: 0.3s;
+}
+
+.myburgingred {
+  text-align: left;
+  color: #6A2D00;
+  padding: 0 50px;
+}
+
+
+
 /*--------------------------------------------------
 ---------------------------------------------------
 ---------------------------------------------------
-                  Header
+                  Success
 ----------------------------------------------------
 ----------------------------------------------------
 ----------------------------------------------------**/
 
-header#unlogged {
-  /* For browsers that do not support gradients */
-  background: #65BBC6;
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(left, #65BBC6, #147871);
-  /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(right, #65BBC6, #147871);
-  /* For Firefox 3.6 to 15 */
-  background: -moz-linear-gradient(right, #65BBC6, #147871);
-  /* Standard syntax */
-  background: linear-gradient(to right, #65BBC6, #147871);
-  color: #ffffff;
-  height: 70px;
-  border-bottom: #FFD66C 7px solid;
+#success {
+  display: none;
+  width: 350px;
+  margin: 50px;
 }
 
-header#unlogged button {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 16px;
+.progress h4 {
+  margin: auto;
 }
 
-header#unlogged li {
-  float: left;
-  display: inline;
-  padding: 0 20px 0 20px;
-  line-height: 50px;
+#success p {
+  text-align: center;
+  padding-top: 40px;
 }
 
-header#unlogged li:last-child {
-  border-right: none;
-}
 
-header#unlogged #branding {
-  float: left;
-}
-
-header#unlogged #branding h1 {
-  margin: 0;
-}
-
-header#unlogged nav {
-  float: right;
-  margin-top: 10px;
-}
-
-header#unlogged .highlight, header .current a {
-  color: #e8491d;
-  font-weight: bold;
-}
-
-header#unlogged a:hover {
-  border-bottom: #FFD66C 2px solid;
-}
-
-section.main {
-  float: left;
-  width: 75%;
-}
-
-#branding .logo {
-  padding-top: 2px;
-}
 
 #newOrder {
   padding-right: 40px;
@@ -157,55 +1093,6 @@ section.main {
 ----------------------------------------------------
 ----------------------------------------------------**/
 
-#sidebar {
-  float: right;
-  width: 25%;
-  position: relative;
-}
-
-.docket {
-  padding: 15px;
-  background: #F9F9E0;
-  color: #6A2D00;
-  text-align: center;
-  height: calc(100vh - 107px);
-}
-
-.docket h3 {
-  margin-top: 0;
-  margin-bottom: 2px;
-  font-family: 'Galada', cursive;
-  font-size: 30px;
-}
-
-button#checkout_btn {
-  background-color: #D67DB3;
-  color: white;
-  padding: 14px 20px;
-  margin: 20px;
-  border: none;
-  cursor: pointer;
-  width: ;
-  display: inline-block;
-  text-align: center;
-}
-
-#docketitems {
-  padding-top: 20px;
-  border-top: #6A2D00 2px dashed;
-  height: calc(100vh - 246px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-bottom: #6A2D00 2px dashed;
-}
-
-#total {
-  padding-top: 27px;
-  border: none;
-  float: left;
-  width: 49%;
-  font-size: 20px;
-}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -215,57 +1102,14 @@ button#checkout_btn {
 ----------------------------------------------------
 ----------------------------------------------------**/
 
-.content {
-  height: calc(100vh - 137px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-header#menu {
-  background: #6A2D00;
-  height: 60px;
-}
-
-/* Style the tab */
-
-div.tab {
-  margin-top: 7px;
-  overflow: hidden;
-}
-
 /* Style the buttons inside the tab */
 
-div.tab button {
-  float: left;
-  transition: 0.3s;
-  width: 33%;
-  color: #FFD66C;
-  text-decoration: none;
-  font-size: 30px;
-  font-family: 'Galada', cursive;
-}
 
-div.tab button {
-  height: 51.5px;
-}
-
-/* Change background color of buttons on hover */
-
-div.tab button:hover {
-  border-bottom: #FFD66C 3px solid;
-  height: 51.5px;
-}
-
-/* Create an active/current tablink class */
-
-div.tab button.active {
-  border-bottom: #FFD66C 3px solid;
-}
 
 /* Style the tab content */
-
+/*
 .tabcontent {
-  display: none;
+  /*display: none;
   padding: 12px 12px;
   padding-left: 26px;
   border-top: none;
@@ -292,28 +1136,12 @@ div.tab button.active {
 
 .itemcontainer h3 {
   background: #FFD66C;
-  /*color: #FFD66C;*/
+  color: #FFD66C;
   text-align: center;
   margin: 0;
-  /*font-family: 'Galada', cursive;*/
-}
+  font-family: 'Galada', cursive;
+}*/
 
-/*Scroll Bar*/
-
-::-webkit-scrollbar {
-  width: 12px;
-  /* for vertical scrollbars */
-  height: 12px;
-  /* for horizontal scrollbars */
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #FFD66C;
-}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -505,111 +1333,22 @@ button#myburgbtn {
   text-align: center;
 }
 
-.myburgerItem {
-  width: 70%;
-  margin: auto;
-}
-
-.date {
-  float: left;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.name {
- text-align: center;
-}
-
-.price {
-  float: right;
-  margin: 0;
-  padding-right: 50px;
-}
-
-.myburgAdd {
-  margin-top: -4px;
-  margin-right: -90px;
-  padding: 10px 20px;
-  float: right;
-  background-color: #D67DB3;
-  color: #F9F9E0;
-  width: 13%;
-}
-
-.myburgerscroll {
-  height: calc(100vh - 278px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.myburgcase {
-  background: #F9F9E0;
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(#F9F9E0, #FAF8CF);
-  /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(#F9F9E0, #FAF8CF);
-  /* For Firefox 3.6 to 15 */
-  background: -moz-linear-gradient(#F9F9E0, #FAF8CF);
-  /* Standard syntax */
-  background: linear-gradient(#F9F9E0, #FAF8CF);
-  border-bottom: #FAF3C0 4px solid;
-  min-height: 44px;
-}
-
-.myingredcase {
-  background: #6A2D00;
-  padding: 20px 0 20px 0;
-}
-
-.myburgingred {
-  text-align: center;
-  color: #FFD66C;
-}
-
-/*--------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-                  Create Burger
-----------------------------------------------------
-----------------------------------------------------
-----------------------------------------------------**/
-
-/*Button*/
-
-.create-container {
-  width: 50%;
-  margin: auto;
-  overflow: hidden;
-}
-
-.create {
-  background: #4F2200;
-  overflow: hidden;
-  text-align: center;
-  padding: 15px;
-}
-
-.create button {
-  color: #F9F9E0;
-  font-size: 20px;
-}
-
-.whitechoc {
+/*.whitechoc {
   position: relative;
   top: -2px;
   left: -2px;
-}
+}*/
 
 /*Modal*/
 
 /* Style the tab */
-
+/*
 div.createtab {
   float: left;
   width: 70%;
   margin-top: 7px;
   overflow: hidden;
-}
+}*/
 
 /* Style the buttons inside the tab */
 
@@ -648,7 +1387,7 @@ div.createtab button.active {
   /* Could be more or less, depending on screen size */
 }
 
-.createBurgercontent {
+/*.createBurgercontent {
   display: none;
   padding: 6px 12px;
   border-top: #FAF3C0;
@@ -656,15 +1395,11 @@ div.createtab button.active {
   height: 320px;
   overflow-y: auto;
   background: #FAF8CF;
-  /* For Safari 5.1 to 6.0 */
   background: -webkit-linear-gradient(#FAF8CF, #F9F9E0);
-  /* For Opera 11.1 to 12.0 */
   background: -o-linear-gradient(#FAF8CF, #F9F9E0);
-  /* For Firefox 3.6 to 15 */
   background: -moz-linear-gradient(#FAF8CF, #F9F9E0);
-  /* Standard syntax */
   background: linear-gradient(#FAF8CF, #F9F9E0);
-}
+}*/
 
 .createItem {
   width: 120px;
@@ -750,63 +1485,30 @@ div.createtab button.active {
 img.avatar {
   width: 25%;
 }
-
+/*
 .logcontainer {
   padding: 16px;
   width: 46%;
   display: inline-block;
-}
+}*/
 
-/* The Modal (background) */
 
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-
-.modal-content {
-  background-color: #F9F9E0;
-  color: #6A2D00;
-  margin: -30px auto 0 auto;
-  /* 5% from the top, 15% from the bottom and centered */
-  width: 80%;
-  /* Could be more or less, depending on screen size */
-}
 
 /* The Close Button (x) */
 
-.close {
+/*.close {
   position: absolute;
   right: 25px;
   top: 0;
   color: #F9F9E0;
   font-size: 35px;
   font-weight: bold;
-}
+}*/
 
-.close:hover, .close:focus {
+/*.close:hover, .close:focus {
   color: #D67DB3;
   cursor: pointer;
-}
+}*/
 
 /* Add Zoom Animation */
 
@@ -833,314 +1535,6 @@ img.avatar {
   }
 }
 
-/*--------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-                  Checkout
-----------------------------------------------------
-----------------------------------------------------
-----------------------------------------------------**/
-
-.checktitle {
-  margin-top: -15px;
-  margin-bottom: 10px;
-  float: left;
-  width: 100%;
-  text-align: center;
-  background: #6A2D00;
-  color: #FFD66C;
-  font-size: 30px;
-  font-family: 'Galada', cursive;
-  padding-top: 10px;
-}
-
-button#pay_btn {
-  background-color: #D67DB3;
-  color: white;
-  padding: 14px 20px;
-  margin: 20px;
-  border: none;
-  cursor: pointer;
-  float: left;
-}
-
-#rcpt {
-  text-align: center;
-}
-
-#back_btn {
-  font-size: 20px;
-  border: none;
-}
-
-#next_btn {
-  font-size: 20px;
-  border: none;
-}
-
-div.checktab {
-  margin-top: 7px;
-  overflow: hidden;
-}
-
-/* Style the buttons inside the tab */
-
-div.checktab button {
-  float: left;
-  transition: 0.3s;
-  width: 33%;
-  color: #FFD66C;
-  text-decoration: none;
-  font-size: 30px;
-  font-family: 'Galada', cursive;
-}
-
-div.checktab button {
-  height: 51.5px;
-}
-
-/* Change background color of buttons on hover */
-
-div.checktab button:hover {}
-
-/* Create an active/current tablink class */
-
-div.checktab button.active {
-  border-bottom: #FFD66C 3px solid;
-}
-
-.reciept {
-  width: 70%;
-  margin: auto;
-  margin-top: 20px;
-  overflow: hidden;
-  background: #F9F9E0;
-}
-
-.reciept h3 {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
-  color: #6A2D00;
-  font-size: 20px;
-  font-family: 'Galada', cursive;
-}
-
-.current_order {
-  width: 70%;
-  margin: auto;
-  border-top: #6A2D00 2px dashed;
-  padding: 20px;
-  text-align: center;
-}
-
-.checktotal {
-  margin: auto;
-  width: 50%;
-}
-
-.checktotal h3 {
-  padding-top: 22px;
-}
-
-/*--------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-                  Payment
-----------------------------------------------------
-----------------------------------------------------
-----------------------------------------------------**/
-
-#paynow {
-  display: none;
-}
-
-#back_btn {
-  font-size: 20px;
-  border: none;
-}
-
-#next_btn {
-  font-size: 20px;
-  border: none;
-}
-
-div.paytab {
-  margin-top: 7px;
-  overflow: hidden;
-}
-
-/* Style the buttons inside the tab */
-
-div.paytab button {
-  float: left;
-  transition: 0.3s;
-  width: 33%;
-  color: #FFD66C;
-  text-decoration: none;
-  font-size: 30px;
-  font-family: 'Galada', cursive;
-}
-
-div.paytab button {
-  height: 51.5px;
-}
-
-/* Change background color of buttons on hover */
-
-div.paytab button:hover {}
-
-/* Create an active/current tablink class */
-
-div.paytab button.active {
-  border-bottom: #FFD66C 3px solid;
-}
-
-.reciept {
-  width: 70%;
-  margin: auto;
-  margin-top: 20px;
-  overflow: hidden;
-  background: #F9F9E0;
-}
-
-.reciept h3 {
-  text-align: center;
-  color: #6A2D00;
-  font-size: 30px;
-  font-family: 'Galada', cursive;
-}
-
-.current_payment {
-  width: 70%;
-  margin: auto;
-  border-top: #6A2D00 2px dashed;
-  border-bottom: #6A2D00 2px dashed;
-  padding: 20px;
-  text-align: center;
-  height: calc(100vh - 420px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.pay_content {
-  height: calc(100vh - 237px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.creditCardForm {
-  max-width: 700px;
-  background-color: #fff;
-  margin: 5px auto;
-  overflow: hidden;
-  padding: 25px;
-  padding-bottom: 15px;
-  padding-top: 10px;
-  color: #4c4e56;
-}
-
-.creditCardForm label {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.creditCardForm .payment {
-  float: left;
-  font-size: 18px;
-  padding: 10px 25px;
-  margin-top: 0;
-  position: relative;
-}
-
-.creditCardForm .payment .form-group {
-  float: left;
-}
-
-.creditCardForm .payment .form-control {
-  line-height: 40px;
-  height: auto;
-  padding: 0 16px;
-}
-
-.creditCardForm .owner {
-  width: 63%;
-  margin-right: 10px;
-}
-
-.creditCardForm .CVV {
-  width: 35%;
-}
-
-.creditCardForm #card-number-field {
-  width: 100%;
-}
-
-.creditCardForm #expiration-date {
-  width: 54%;
-}
-
-.expdate_label {
-  float: left;
-}
-
-.creditCardForm #credit_cards {
-  width: 46%;
-  text-align: right;
-}
-
-.creditCardForm #pay-now {
-  width: 100%;
-  margin-top: 25px;
-}
-
-.creditCardForm .payment .btn {
-  width: 100%;
-  margin-top: -10px;
-  font-size: 24px;
-  background-color: #2ec4a5;
-  color: white;
-  height: 50px;
-}
-
-.creditCardForm .payment select {
-  padding: 10px;
-  margin-right: 15px;
-}
-
-.transparent {
-  opacity: 0.2;
-}
-
-@media(max-width: 650px) {
-  .creditCardForm .owner, .creditCardForm .CVV, .creditCardForm #expiration-date, .creditCardForm #credit_cards {
-    width: 100%;
-  }
-  .creditCardForm #credit_cards {
-    text-align: left;
-  }
-}
-
-/*--------------------------------------------------
----------------------------------------------------
----------------------------------------------------
-                  Success
-----------------------------------------------------
-----------------------------------------------------
-----------------------------------------------------**/
-
-#success {
-  display: none;
-}
-
-.progress h4 {
-  margin: auto;
-}
-
-#success p {
-  text-align: center;
-  padding-top: 40px;
-}
 
 /*--------------------------------------------------
 ---------------------------------------------------
@@ -1150,17 +1544,17 @@ div.paytab button.active {
 ----------------------------------------------------
 ----------------------------------------------------**/
 
-input[type=text], input[type=password], input[type=email] {
+/*input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
+}*/
 
 /* Set a style for all buttons */
-
+/*
 button#log {
   background-color: #D67DB3;
   color: white;
@@ -1169,13 +1563,9 @@ button#log {
   border: none;
   cursor: pointer;
   width: 100%;
-}
+}*/
 
-button:hover {
-  /*opacity: 0.8;*/
-}
-
-.title {
+/*.title {
   margin-top: -15px;
   margin-bottom: 10px;
   float: left;
@@ -1186,99 +1576,45 @@ button:hover {
   font-size: 30px;
   font-family: 'Galada', cursive;
   padding-top: 10px;
-}
+}*/
 
-/* Center the image and position the close button */
 
-.imgcontainer {
-  /* For browsers that do not support gradients */
-  background: #65BBC6;
-  /* For Safari 5.1 to 6.0 */
-  background: -webkit-linear-gradient(right, #147871, #65BBC6);
-  /* For Opera 11.1 to 12.0 */
-  background: -o-linear-gradient(left, #147871, #65BBC6);
-  /* For Firefox 3.6 to 15 */
-  background: -moz-linear-gradient(left, #147871, #65BBC6);
-  /* Standard syntax */
-  background: linear-gradient(to left, #147871, #65BBC6);
-  text-align: center;
-  margin: 0 0 12px 0;
-  position: relative;
-  border-bottom: #FFD66C 7px solid;
-}
-
-img.avatar {
-  padding-top: 10px;
-  width: 18%;
-}
-
-.logcontainer {
+/*.logcontainer {
   padding: 16px;
   width: 46%;
   display: inline-block;
-}
+}*/
 
-.signcontainer {
+/*.signcontainer {
   padding: 16px;
   width: 46%;
   display: inline-block;
   border-left: 2px solid #65BBC6;
   margin-bottom: 20px;
-}
+}*/
 
-span.psw {
+/*span.psw {
   float: right;
   padding-top: 16px;
-}
+}*/
 
-/* The Modal (background) */
 
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-
-.modal-content {
-  background-color: #F9F9E0;
-  color: #6A2D00;
-  margin: -50px auto 0 auto;
-  width: 80%;
-}
 
 /* The Close Button (x) */
 
-.close {
+/*.close {
   position: absolute;
   right: 25px;
   top: 0;
   color: #F9F9E0;
   font-size: 35px;
   font-weight: bold;
-}
+}*/
 
-.close:hover, .close:focus {
+/*.close:hover, .close:focus {
   color: #D67DB3;
   cursor: pointer;
-}
+}*/
 
 /* Add Zoom Animation */
 
