@@ -1142,6 +1142,20 @@ margin: 25px;
   font-family: 'Galada', cursive;
 }*/
 
+#burgerimg {
+  background: #65BBC6;
+  background: -webkit-linear-gradient(left, #65BBC6, #147871);
+  background: -o-linear-gradient(right, #65BBC6, #147871);
+  background: -moz-linear-gradient(right, #65BBC6, #147871);
+  background: linear-gradient(to right, #65BBC6, #147871);
+  text-align: center;
+  margin: auto;
+}
+
+#setburgimg {
+  text-align: center;
+  margin-right: 140px;
+}
 
 /*--------------------------------------------------
 ---------------------------------------------------
